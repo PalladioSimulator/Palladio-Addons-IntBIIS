@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ASCII"?>
+<usagemodel:UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpusagemodel="http://sdq.ipd.uka.de/PalladioComponentModel/5.0/bp/bpUsageModel" xmlns:usagemodel="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+  <usageScenario_UsageModel id="_bOQSkCp2EeKzWbVMXUuukA" entityName="defaultUsageScenario">
+    <scenarioBehaviour_UsageScenario id="_bWJqUCp2EeKzWbVMXUuukA" entityName="defaultUsageScenarioBehaviour">
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_bWJqUSp2EeKzWbVMXUuukA" entityName="start" successor="_kYiERiqLEeKRQbvGI53tTg"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_bWJqUip2EeKzWbVMXUuukA" entityName="stop" predecessor="_P2sRkFWxEeKMz5gSePhc5g"/>
+      <actions_ScenarioBehaviour xsi:type="bpusagemodel:ActorStep" id="_kYiERiqLEeKRQbvGI53tTg" entityName="AS1" successor="_SO_TwD-6EeKmIKEmnGV1mQ" predecessor="_bWJqUSp2EeKzWbVMXUuukA" continuouslyPerformed="true">
+        <processingTime specification="300"/>
+        <responsibleRole href="My.organizationenvironmentmodel#_JTlEcCpwEeK7tNrYJG2pVw"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="bpusagemodel:ActorStep" id="_SO_TwD-6EeKmIKEmnGV1mQ" entityName="AS2" successor="_P2sRkFWxEeKMz5gSePhc5g" predecessor="_kYiERiqLEeKRQbvGI53tTg" continuouslyPerformed="true">
+        <processingTime specification="360"/>
+        <responsibleRole href="My.organizationenvironmentmodel#_JTlEcCpwEeK7tNrYJG2pVw"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="bpusagemodel:ActorStep" id="_P2sRkFWxEeKMz5gSePhc5g" entityName="AS3" successor="_bWJqUip2EeKzWbVMXUuukA" predecessor="_SO_TwD-6EeKmIKEmnGV1mQ" continuouslyPerformed="true">
+        <processingTime specification="480"/>
+        <responsibleRole href="My.organizationenvironmentmodel#_JTlEcCpwEeK7tNrYJG2pVw"/>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+    <workload_UsageScenario xsi:type="bpusagemodel:ProcessWorkload">
+      <processTriggerPeriods id="_VCZv0NbGEeK-yb7AOlzQvQ" periodStartTimePoint="1.0" periodEndTimePoint="2.0">
+        <interArrivalTime_ProcessWorkload specification="default"/>
+      </processTriggerPeriods>
+    </workload_UsageScenario>
+  </usageScenario_UsageModel>
+</usagemodel:UsageModel>
