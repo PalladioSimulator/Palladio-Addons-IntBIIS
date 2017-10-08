@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated intex -->
+      <package
+            uri="http://palladiosimulator.org/PalladioComponentModel/5.1/intex/organizationenvironmentrel"
+            class="edu.kit.ipd.sdq.intbiis.intex.organizationenvironmentrel.OrganizationenvironmentrelPackage"
+            genModel="model/intex.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated intex -->
+      <parser
+            type="organizationenvironmentrel"
+            class="edu.kit.ipd.sdq.intbiis.intex.organizationenvironmentrel.util.OrganizationenvironmentrelResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated intex -->
+      <package
+            uri="http://palladiosimulator.org/PalladioComponentModel/5.1/intex/bpusagerel"
+            class="edu.kit.ipd.sdq.intbiis.intex.bpusagerel.BpusagerelPackage"
+            genModel="model/intex.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated intex -->
+      <parser
+            type="bpusagerel"
+            class="edu.kit.ipd.sdq.intbiis.intex.bpusagerel.util.BpusagerelResourceFactoryImpl"/>
+   </extension>
+
+</plugin>
