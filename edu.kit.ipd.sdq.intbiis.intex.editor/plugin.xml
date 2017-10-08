@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated intex -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.ipd.sdq.intbiis.intex.organizationenvironmentrel.presentation.OrganizationenvironmentrelModelWizardID"
+            name="%_UI_OrganizationenvironmentrelModelWizard_label"
+            class="edu.kit.ipd.sdq.intbiis.intex.organizationenvironmentrel.presentation.OrganizationenvironmentrelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/OrganizationenvironmentrelModelFile.gif">
+         <description>%_UI_OrganizationenvironmentrelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated intex -->
+      <editor
+            id="edu.kit.ipd.sdq.intbiis.intex.organizationenvironmentrel.presentation.OrganizationenvironmentrelEditorID"
+            name="%_UI_OrganizationenvironmentrelEditor_label"
+            icon="icons/full/obj16/OrganizationenvironmentrelModelFile.gif"
+            extensions="organizationenvironmentrel"
+            class="edu.kit.ipd.sdq.intbiis.intex.organizationenvironmentrel.presentation.OrganizationenvironmentrelEditor"
+            contributorClass="edu.kit.ipd.sdq.intbiis.intex.organizationenvironmentrel.presentation.OrganizationenvironmentrelActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated intex -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.ipd.sdq.intbiis.intex.bpusagerel.presentation.BpusagerelModelWizardID"
+            name="%_UI_BpusagerelModelWizard_label"
+            class="edu.kit.ipd.sdq.intbiis.intex.bpusagerel.presentation.BpusagerelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/BpusagerelModelFile.gif">
+         <description>%_UI_BpusagerelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated intex -->
+      <editor
+            id="edu.kit.ipd.sdq.intbiis.intex.bpusagerel.presentation.BpusagerelEditorID"
+            name="%_UI_BpusagerelEditor_label"
+            icon="icons/full/obj16/BpusagerelModelFile.gif"
+            extensions="bpusagerel"
+            class="edu.kit.ipd.sdq.intbiis.intex.bpusagerel.presentation.BpusagerelEditor"
+            contributorClass="edu.kit.ipd.sdq.intbiis.intex.bpusagerel.presentation.BpusagerelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="org.palladiosimulator.solver.reliability.runconfig.PCMSolverReliabilityLaunchConfigurationDelegate"
+            id="de.uka.ipd.sdq.dsolver_plugin.PCMSolverLaunchConfigurationType.Reliability"
+            name="PCM Solver Reliability"
+            modes="run, debug">
+      </launchConfigurationType>
+   </extension>
+   <extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+	    <launchConfigurationTypeImage
+	        icon="icons/relsolver.ico"
+	        configTypeID="de.uka.ipd.sdq.dsolver_plugin.PCMSolverLaunchConfigurationType.Reliability"
+	        id="org.eclipse.jdt.debug.ui.launchConfigurationTypeImage.PCMSolver.Reliability">
+	    </launchConfigurationTypeImage>
+	</extension>
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+	    <launchConfigurationTabGroup
+	        type="de.uka.ipd.sdq.dsolver_plugin.PCMSolverLaunchConfigurationType.Reliability"
+	        class="org.palladiosimulator.solver.reliability.runconfig.PCMSolverReliabilityTabGroup"
+	        id="org.eclipse.jdt.debug.ui.launchConfigurationTabGroup.PCMSolver.Reliability">
+	    </launchConfigurationTabGroup>
+	</extension>
+ <extension
+       point="org.eclipse.ui.popupMenus">
+    <objectContribution
+          id="org.palladiosimulator.reliability.solver.markov"
+          nameFilter="*.markov"
+          objectClass="org.eclipse.core.resources.IFile">
+       <menu
+             id="org.palladiosimulator.reliability.solver.menu"
+             label="PCM Reliability Solver"
+             path="additions">
+          <separator
+                name="markov">
+          </separator>
+       </menu>
+       <action
+             class="org.palladiosimulator.solver.reliability.popup.actions.CompareAction"
+             enablesFor="2"
+             id="org.palladiosimulator.reliability.solver.newAction"
+             label="Markov Comparison..."
+             menubarPath="org.palladiosimulator.reliability.solver.menu/markov">
+       </action>
+    </objectContribution>
+ </extension>
+   <extension point="org.eclipse.ui.editors">
+         <editor
+               class="org.palladiosimulator.solver.reliability.visualisation.MarkovResultEditor"
+               extensions="markovresult"
+               icon="icons/relsolver.ico"
+               id="org.palladiosimulator.reliability.solver.pcm2markov.MarkovResultEditor"
+               name="Markov Analysis Results">
+         </editor>
+   </extension>
+</plugin>
