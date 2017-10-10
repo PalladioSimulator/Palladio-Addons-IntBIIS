@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Intex
+Bundle-SymbolicName: edu.kit.ipd.sdq.intex.solver
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: de.uhd.ifi.se.pcm.bppcm;bundle-version="1.0.0",
+ org.palladiosimulator.reliability.markov;bundle-version="3.2.0",
+ org.palladiosimulator.solver;bundle-version="3.0.0",
+ org.apache.log4j;bundle-version="1.2.15",
+ org.palladiosimulator.solver.context,
+ org.palladiosimulator.solver.reliability;bundle-version="3.1.0",
+ org.eclipse.ui.console;bundle-version="3.6.201",
+ edu.kit.ipd.sdq.intbiis.intex;bundle-version="1.0.0",
+ org.palladiosimulator.reliability
+Export-Package: intex.solver.bp2markov
