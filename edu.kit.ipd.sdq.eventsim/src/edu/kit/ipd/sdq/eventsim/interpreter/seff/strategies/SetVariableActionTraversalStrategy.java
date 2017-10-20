@@ -1,6 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.interpreter.seff.strategies;
 
-import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
+import org.palladiosimulator.pcm.seff.SetVariableAction;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 import edu.kit.ipd.sdq.eventsim.entities.Request;

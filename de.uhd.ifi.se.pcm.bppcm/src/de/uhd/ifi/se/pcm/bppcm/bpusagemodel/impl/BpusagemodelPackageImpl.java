@@ -9,27 +9,37 @@ import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.BpusagemodelFactory;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.BpusagemodelPackage;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessTriggerPeriod;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessWorkload;
-
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ReleaseDeviceResourceAction;
+
+import de.uhd.ifi.se.pcm.bppcm.datamodel.DatamodelPackage;
+
+import de.uhd.ifi.se.pcm.bppcm.datamodel.impl.DatamodelPackageImpl;
+
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationenvironmentmodelPackage;
 
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.impl.OrganizationenvironmentmodelPackageImpl;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
-import de.uka.ipd.sdq.pcm.PcmPackage;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 
-import de.uka.ipd.sdq.pcm.core.CorePackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
 
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+import de.uka.ipd.sdq.units.UnitsPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import org.palladiosimulator.pcm.PcmPackage;
+
+import org.palladiosimulator.pcm.core.CorePackage;
+
+import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -127,18 +137,25 @@ public class BpusagemodelPackageImpl extends EPackageImpl implements Bpusagemode
 		isInited = true;
 
 		// Initialize simple dependencies
+		IdentifierPackage.eINSTANCE.eClass();
 		PcmPackage.eINSTANCE.eClass();
+		ProbfunctionPackage.eINSTANCE.eClass();
+		StoexPackage.eINSTANCE.eClass();
+		UnitsPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		OrganizationenvironmentmodelPackageImpl theOrganizationenvironmentmodelPackage = (OrganizationenvironmentmodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(OrganizationenvironmentmodelPackage.eNS_URI) instanceof OrganizationenvironmentmodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(OrganizationenvironmentmodelPackage.eNS_URI) : OrganizationenvironmentmodelPackage.eINSTANCE);
+		DatamodelPackageImpl theDatamodelPackage = (DatamodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DatamodelPackage.eNS_URI) instanceof DatamodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DatamodelPackage.eNS_URI) : DatamodelPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theBpusagemodelPackage.createPackageContents();
 		theOrganizationenvironmentmodelPackage.createPackageContents();
+		theDatamodelPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theBpusagemodelPackage.initializePackageContents();
 		theOrganizationenvironmentmodelPackage.initializePackageContents();
+		theDatamodelPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theBpusagemodelPackage.freeze();
@@ -156,6 +173,24 @@ public class BpusagemodelPackageImpl extends EPackageImpl implements Bpusagemode
 	 */
 	public EClass getActorStep() {
 		return actorStepEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActorStep_ProcessingTime() {
+		return (EReference)actorStepEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActorStep_RestingTime() {
+		return (EAttribute)actorStepEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -190,8 +225,8 @@ public class BpusagemodelPackageImpl extends EPackageImpl implements Bpusagemode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getActorStep_ProcessingTime() {
-		return (EReference)actorStepEClass.getEStructuralFeatures().get(0);
+	public EReference getActorStep_OutputDataObjects() {
+		return (EReference)actorStepEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -199,8 +234,8 @@ public class BpusagemodelPackageImpl extends EPackageImpl implements Bpusagemode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getActorStep_RestingTime() {
-		return (EAttribute)actorStepEClass.getEStructuralFeatures().get(1);
+	public EReference getActorStep_InputDataObjects() {
+		return (EReference)actorStepEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -262,8 +297,8 @@ public class BpusagemodelPackageImpl extends EPackageImpl implements Bpusagemode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProcessTriggerPeriod_PeriodEndTimePoint() {
-		return (EAttribute)processTriggerPeriodEClass.getEStructuralFeatures().get(2);
+	public EAttribute getProcessTriggerPeriod_PeriodStartTimePoint() {
+		return (EAttribute)processTriggerPeriodEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -271,8 +306,8 @@ public class BpusagemodelPackageImpl extends EPackageImpl implements Bpusagemode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProcessTriggerPeriod_PeriodStartTimePoint() {
-		return (EAttribute)processTriggerPeriodEClass.getEStructuralFeatures().get(1);
+	public EAttribute getProcessTriggerPeriod_PeriodEndTimePoint() {
+		return (EAttribute)processTriggerPeriodEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -363,6 +398,8 @@ public class BpusagemodelPackageImpl extends EPackageImpl implements Bpusagemode
 		createEReference(actorStepEClass, ACTOR_STEP__RESPONSIBLE_ROLE);
 		createEAttribute(actorStepEClass, ACTOR_STEP__CONTINUOUSLY_PERFORMED);
 		createEAttribute(actorStepEClass, ACTOR_STEP__INTERRUPTABLE);
+		createEReference(actorStepEClass, ACTOR_STEP__OUTPUT_DATA_OBJECTS);
+		createEReference(actorStepEClass, ACTOR_STEP__INPUT_DATA_OBJECTS);
 
 		activityEClass = createEClass(ACTIVITY);
 		createEReference(activityEClass, ACTIVITY__SCENARIO);
@@ -411,6 +448,7 @@ public class BpusagemodelPackageImpl extends EPackageImpl implements Bpusagemode
 		UsagemodelPackage theUsagemodelPackage = (UsagemodelPackage)EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI);
 		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		OrganizationenvironmentmodelPackage theOrganizationenvironmentmodelPackage = (OrganizationenvironmentmodelPackage)EPackage.Registry.INSTANCE.getEPackage(OrganizationenvironmentmodelPackage.eNS_URI);
+		DatamodelPackage theDatamodelPackage = (DatamodelPackage)EPackage.Registry.INSTANCE.getEPackage(DatamodelPackage.eNS_URI);
 		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
 
 		// Create type parameters
@@ -432,6 +470,14 @@ public class BpusagemodelPackageImpl extends EPackageImpl implements Bpusagemode
 		initEReference(getActorStep_ResponsibleRole(), theOrganizationenvironmentmodelPackage.getRole(), null, "responsibleRole", null, 0, 1, ActorStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActorStep_ContinuouslyPerformed(), ecorePackage.getEBoolean(), "continuouslyPerformed", null, 0, 1, ActorStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getActorStep_Interruptable(), ecorePackage.getEBoolean(), "interruptable", "false", 0, 1, ActorStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		EGenericType g1 = createEGenericType(theDatamodelPackage.getDataObject());
+		EGenericType g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEReference(getActorStep_OutputDataObjects(), g1, null, "outputDataObjects", null, 0, -1, ActorStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theDatamodelPackage.getDataObject());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEReference(getActorStep_InputDataObjects(), g1, null, "inputDataObjects", null, 0, -1, ActorStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(activityEClass, Activity.class, "Activity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActivity_Scenario(), theUsagemodelPackage.getScenarioBehaviour(), null, "scenario", null, 1, 1, Activity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

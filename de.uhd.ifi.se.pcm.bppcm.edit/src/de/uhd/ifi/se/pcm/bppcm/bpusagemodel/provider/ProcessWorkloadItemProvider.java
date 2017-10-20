@@ -7,8 +7,6 @@ import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.BpusagemodelFactory;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.BpusagemodelPackage;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessWorkload;
 
-import de.uka.ipd.sdq.pcm.usagemodel.provider.OpenWorkloadItemProvider;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -19,13 +17,10 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import org.palladiosimulator.pcm.usagemodel.provider.OpenWorkloadItemProvider;
 
 /**
  * This is the item provider adapter for a {@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessWorkload} object.
@@ -33,14 +28,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProcessWorkloadItemProvider
-	extends OpenWorkloadItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class ProcessWorkloadItemProvider extends OpenWorkloadItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -117,6 +105,7 @@ public class ProcessWorkloadItemProvider
 	public String getText(Object object) {
 		return getString("_UI_ProcessWorkload_type");
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

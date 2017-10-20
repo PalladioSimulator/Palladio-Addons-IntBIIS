@@ -1,7 +1,7 @@
 package edu.kit.ipd.sdq.eventsim.interpreter.seff.strategies;
 
-import de.uka.ipd.sdq.pcm.repository.PassiveResource;
-import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
+import org.palladiosimulator.pcm.repository.PassiveResource;
+import org.palladiosimulator.pcm.seff.ReleaseAction;
 import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.entities.SimPassiveResource;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.EventSimException;

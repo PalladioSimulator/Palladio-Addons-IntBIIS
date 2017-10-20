@@ -1,6 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.interpreter.usage.strategies;
 
-import de.uka.ipd.sdq.pcm.usagemodel.Start;
+import org.palladiosimulator.pcm.usagemodel.Start;
 import edu.kit.ipd.sdq.eventsim.entities.User;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.UserState;
 import edu.kit.ipd.sdq.eventsim.interpreter.usage.IUsageTraversalInstruction;

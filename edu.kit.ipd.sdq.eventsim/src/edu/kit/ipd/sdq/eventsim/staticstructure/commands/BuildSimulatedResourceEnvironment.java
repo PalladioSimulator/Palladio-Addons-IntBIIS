@@ -3,10 +3,10 @@ package edu.kit.ipd.sdq.eventsim.staticstructure.commands;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
+import org.palladiosimulator.pcm.resourceenvironment.LinkingResource;
+import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
+import org.palladiosimulator.pcm.resourcetype.ResourceType;
 import edu.kit.ipd.sdq.eventsim.EventSimModel;
 import edu.kit.ipd.sdq.eventsim.PCMModel;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;

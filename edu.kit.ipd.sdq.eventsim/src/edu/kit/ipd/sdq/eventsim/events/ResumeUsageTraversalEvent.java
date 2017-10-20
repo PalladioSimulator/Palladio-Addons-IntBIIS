@@ -1,6 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.events;
 
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 import edu.kit.ipd.sdq.eventsim.EventSimModel;
 import edu.kit.ipd.sdq.eventsim.entities.User;

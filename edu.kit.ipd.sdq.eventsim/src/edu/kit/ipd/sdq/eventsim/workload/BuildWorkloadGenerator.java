@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.BpusagemodelPackage;
-import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
-import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import org.palladiosimulator.pcm.usagemodel.ClosedWorkload;
+import org.palladiosimulator.pcm.usagemodel.OpenWorkload;
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessWorkload;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-import de.uka.ipd.sdq.pcm.usagemodel.Workload;
+import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
+import org.palladiosimulator.pcm.usagemodel.Workload;
 import edu.kit.ipd.sdq.eventsim.EventSimModel;
 import edu.kit.ipd.sdq.eventsim.PCMModel;
 import de.uhd.ifi.se.bp.ProcessWorkloadGenerator;

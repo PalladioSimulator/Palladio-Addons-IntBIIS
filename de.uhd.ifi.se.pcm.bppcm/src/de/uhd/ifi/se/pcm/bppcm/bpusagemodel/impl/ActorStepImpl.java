@@ -5,19 +5,27 @@ package de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.BpusagemodelPackage;
 
+import de.uhd.ifi.se.pcm.bppcm.datamodel.DataObject;
+
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.Role;
 
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-
-import de.uka.ipd.sdq.pcm.usagemodel.impl.AbstractUserActionImpl;
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import org.palladiosimulator.pcm.core.PCMRandomVariable;
+
+import org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,14 +33,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.ActorStepImpl#getProcessingTime <em>Processing Time</em>}</li>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.ActorStepImpl#getRestingTime <em>Resting Time</em>}</li>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.ActorStepImpl#getResponsibleRole <em>Responsible Role</em>}</li>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.ActorStepImpl#isContinuouslyPerformed <em>Continuously Performed</em>}</li>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.ActorStepImpl#isInterruptable <em>Interruptable</em>}</li>
+ *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.ActorStepImpl#getOutputDataObjects <em>Output Data Objects</em>}</li>
+ *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.ActorStepImpl#getInputDataObjects <em>Input Data Objects</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -118,6 +128,26 @@ public class ActorStepImpl extends AbstractUserActionImpl implements ActorStep {
 	protected boolean interruptable = INTERRUPTABLE_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getOutputDataObjects() <em>Output Data Objects</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputDataObjects()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataObject<?>> outputDataObjects;
+
+	/**
+	 * The cached value of the '{@link #getInputDataObjects() <em>Input Data Objects</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInputDataObjects()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataObject<?>> inputDataObjects;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -134,6 +164,70 @@ public class ActorStepImpl extends AbstractUserActionImpl implements ActorStep {
 	@Override
 	protected EClass eStaticClass() {
 		return BpusagemodelPackage.Literals.ACTOR_STEP;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PCMRandomVariable getProcessingTime() {
+		return processingTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProcessingTime(PCMRandomVariable newProcessingTime, NotificationChain msgs) {
+		PCMRandomVariable oldProcessingTime = processingTime;
+		processingTime = newProcessingTime;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BpusagemodelPackage.ACTOR_STEP__PROCESSING_TIME, oldProcessingTime, newProcessingTime);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProcessingTime(PCMRandomVariable newProcessingTime) {
+		if (newProcessingTime != processingTime) {
+			NotificationChain msgs = null;
+			if (processingTime != null)
+				msgs = ((InternalEObject)processingTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BpusagemodelPackage.ACTOR_STEP__PROCESSING_TIME, null, msgs);
+			if (newProcessingTime != null)
+				msgs = ((InternalEObject)newProcessingTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BpusagemodelPackage.ACTOR_STEP__PROCESSING_TIME, null, msgs);
+			msgs = basicSetProcessingTime(newProcessingTime, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BpusagemodelPackage.ACTOR_STEP__PROCESSING_TIME, newProcessingTime, newProcessingTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getRestingTime() {
+		return restingTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRestingTime(double newRestingTime) {
+		double oldRestingTime = restingTime;
+		restingTime = newRestingTime;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BpusagemodelPackage.ACTOR_STEP__RESTING_TIME, oldRestingTime, restingTime));
 	}
 
 	/**
@@ -221,23 +315,11 @@ public class ActorStepImpl extends AbstractUserActionImpl implements ActorStep {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PCMRandomVariable getProcessingTime() {
-		return processingTime;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProcessingTime(PCMRandomVariable newProcessingTime, NotificationChain msgs) {
-		PCMRandomVariable oldProcessingTime = processingTime;
-		processingTime = newProcessingTime;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BpusagemodelPackage.ACTOR_STEP__PROCESSING_TIME, oldProcessingTime, newProcessingTime);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<DataObject<?>> getOutputDataObjects() {
+		if (outputDataObjects == null) {
+			outputDataObjects = new EObjectResolvingEList<DataObject<?>>(DataObject.class, this, BpusagemodelPackage.ACTOR_STEP__OUTPUT_DATA_OBJECTS);
 		}
-		return msgs;
+		return outputDataObjects;
 	}
 
 	/**
@@ -245,39 +327,11 @@ public class ActorStepImpl extends AbstractUserActionImpl implements ActorStep {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProcessingTime(PCMRandomVariable newProcessingTime) {
-		if (newProcessingTime != processingTime) {
-			NotificationChain msgs = null;
-			if (processingTime != null)
-				msgs = ((InternalEObject)processingTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BpusagemodelPackage.ACTOR_STEP__PROCESSING_TIME, null, msgs);
-			if (newProcessingTime != null)
-				msgs = ((InternalEObject)newProcessingTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BpusagemodelPackage.ACTOR_STEP__PROCESSING_TIME, null, msgs);
-			msgs = basicSetProcessingTime(newProcessingTime, msgs);
-			if (msgs != null) msgs.dispatch();
+	public EList<DataObject<?>> getInputDataObjects() {
+		if (inputDataObjects == null) {
+			inputDataObjects = new EObjectResolvingEList<DataObject<?>>(DataObject.class, this, BpusagemodelPackage.ACTOR_STEP__INPUT_DATA_OBJECTS);
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BpusagemodelPackage.ACTOR_STEP__PROCESSING_TIME, newProcessingTime, newProcessingTime));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getRestingTime() {
-		return restingTime;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRestingTime(double newRestingTime) {
-		double oldRestingTime = restingTime;
-		restingTime = newRestingTime;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BpusagemodelPackage.ACTOR_STEP__RESTING_TIME, oldRestingTime, restingTime));
+		return inputDataObjects;
 	}
 
 	/**
@@ -313,6 +367,10 @@ public class ActorStepImpl extends AbstractUserActionImpl implements ActorStep {
 				return isContinuouslyPerformed();
 			case BpusagemodelPackage.ACTOR_STEP__INTERRUPTABLE:
 				return isInterruptable();
+			case BpusagemodelPackage.ACTOR_STEP__OUTPUT_DATA_OBJECTS:
+				return getOutputDataObjects();
+			case BpusagemodelPackage.ACTOR_STEP__INPUT_DATA_OBJECTS:
+				return getInputDataObjects();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -322,6 +380,7 @@ public class ActorStepImpl extends AbstractUserActionImpl implements ActorStep {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -339,6 +398,14 @@ public class ActorStepImpl extends AbstractUserActionImpl implements ActorStep {
 				return;
 			case BpusagemodelPackage.ACTOR_STEP__INTERRUPTABLE:
 				setInterruptable((Boolean)newValue);
+				return;
+			case BpusagemodelPackage.ACTOR_STEP__OUTPUT_DATA_OBJECTS:
+				getOutputDataObjects().clear();
+				getOutputDataObjects().addAll((Collection<? extends DataObject<?>>)newValue);
+				return;
+			case BpusagemodelPackage.ACTOR_STEP__INPUT_DATA_OBJECTS:
+				getInputDataObjects().clear();
+				getInputDataObjects().addAll((Collection<? extends DataObject<?>>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -367,6 +434,12 @@ public class ActorStepImpl extends AbstractUserActionImpl implements ActorStep {
 			case BpusagemodelPackage.ACTOR_STEP__INTERRUPTABLE:
 				setInterruptable(INTERRUPTABLE_EDEFAULT);
 				return;
+			case BpusagemodelPackage.ACTOR_STEP__OUTPUT_DATA_OBJECTS:
+				getOutputDataObjects().clear();
+				return;
+			case BpusagemodelPackage.ACTOR_STEP__INPUT_DATA_OBJECTS:
+				getInputDataObjects().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -389,6 +462,10 @@ public class ActorStepImpl extends AbstractUserActionImpl implements ActorStep {
 				return continuouslyPerformed != CONTINUOUSLY_PERFORMED_EDEFAULT;
 			case BpusagemodelPackage.ACTOR_STEP__INTERRUPTABLE:
 				return interruptable != INTERRUPTABLE_EDEFAULT;
+			case BpusagemodelPackage.ACTOR_STEP__OUTPUT_DATA_OBJECTS:
+				return outputDataObjects != null && !outputDataObjects.isEmpty();
+			case BpusagemodelPackage.ACTOR_STEP__INPUT_DATA_OBJECTS:
+				return inputDataObjects != null && !inputDataObjects.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

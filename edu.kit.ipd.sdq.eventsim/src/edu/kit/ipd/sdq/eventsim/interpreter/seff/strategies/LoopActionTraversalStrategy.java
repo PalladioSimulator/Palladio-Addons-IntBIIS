@@ -2,9 +2,9 @@ package edu.kit.ipd.sdq.eventsim.interpreter.seff.strategies;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-import de.uka.ipd.sdq.pcm.seff.LoopAction;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
+import org.palladiosimulator.pcm.core.PCMRandomVariable;
+import org.palladiosimulator.pcm.seff.LoopAction;
+import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
 import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.interpreter.seff.IRequestTraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.interpreter.seff.ISeffTraversalStrategy;

@@ -12,10 +12,11 @@ import de.uka.ipd.sdq.scheduler.factory.SchedulerExtensionFactory;
  */
 public class BusinessProcessSchedulerFactory implements SchedulerExtensionFactory {
 
-    @Override
-    public IActiveResource getExtensionScheduler(SchedulerModel model, String resourceName, String resourceId,
-            int numberOfCores) {
-        return new SuspendableFCFSResource(model, numberOfCores, resourceName, resourceId);
-    }
+	@Override
+	public IActiveResource getExtensionScheduler(SchedulerModel model, String resourceName, String resourceId,
+			long numberOfCores) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

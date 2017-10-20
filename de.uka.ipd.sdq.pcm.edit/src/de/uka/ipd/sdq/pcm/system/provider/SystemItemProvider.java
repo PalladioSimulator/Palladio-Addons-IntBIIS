@@ -21,15 +21,15 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.core.entity.EntityFactory;
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
+import org.palladiosimulator.pcm.core.composition.CompositionFactory;
+import org.palladiosimulator.pcm.core.composition.CompositionPackage;
+import org.palladiosimulator.pcm.core.entity.EntityFactory;
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
+import org.palladiosimulator.pcm.core.entity.provider.EntityItemProvider;
+import org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin;
+import org.palladiosimulator.pcm.qosannotations.QosannotationsFactory;
+import org.palladiosimulator.pcm.repository.RepositoryFactory;
+import org.palladiosimulator.pcm.system.SystemPackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.system.System} object.
@@ -133,7 +133,7 @@ public class SystemItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((de.uka.ipd.sdq.pcm.system.System)object).getId();
+		String label = ((org.palladiosimulator.pcm.system.System)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_System_type") :
 			getString("_UI_System_type") + " " + label;
@@ -150,7 +150,7 @@ public class SystemItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(de.uka.ipd.sdq.pcm.system.System.class)) {
+		switch (notification.getFeatureID(org.palladiosimulator.pcm.system.System.class)) {
 			case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
 			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 			case SystemPackage.SYSTEM__EVENT_CHANNEL_COMPOSED_STRUCTURE:

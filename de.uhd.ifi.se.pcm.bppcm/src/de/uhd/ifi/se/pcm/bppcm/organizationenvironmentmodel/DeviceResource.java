@@ -2,9 +2,11 @@
  */
 package de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel;
 
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+import org.eclipse.emf.ecore.EObject;
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import org.palladiosimulator.pcm.core.PCMRandomVariable;
+
+import org.palladiosimulator.pcm.core.entity.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,16 +15,16 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource#getCapacity <em>Capacity</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationenvironmentmodelPackage#getDeviceResource()
  * @model
  * @generated
  */
-public interface DeviceResource extends Entity {
+public interface DeviceResource extends EObject, Entity {
 	/**
 	 * Returns the value of the '<em><b>Capacity</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

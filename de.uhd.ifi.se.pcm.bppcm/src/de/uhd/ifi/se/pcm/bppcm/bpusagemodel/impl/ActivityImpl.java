@@ -5,10 +5,6 @@ package de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.Activity;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.BpusagemodelPackage;
 
-import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
-
-import de.uka.ipd.sdq.pcm.usagemodel.impl.AbstractUserActionImpl;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -17,16 +13,20 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
+
+import org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Activity</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.ActivityImpl#getScenario <em>Scenario</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

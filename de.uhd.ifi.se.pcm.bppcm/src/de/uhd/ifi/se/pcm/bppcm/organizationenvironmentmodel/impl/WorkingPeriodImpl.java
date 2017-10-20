@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.impl.WorkingPeriodImpl#getPeriodStartTimePoint <em>Period Start Time Point</em>}</li>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.impl.WorkingPeriodImpl#getPeriodEndTimePoint <em>Period End Time Point</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

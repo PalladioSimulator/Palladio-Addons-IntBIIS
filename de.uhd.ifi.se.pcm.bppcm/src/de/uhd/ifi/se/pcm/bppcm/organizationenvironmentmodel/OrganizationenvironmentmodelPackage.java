@@ -4,12 +4,12 @@ package de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +41,7 @@ public interface OrganizationenvironmentmodelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/5.0/bp/OrganizationEnvironmentModel";
+	String eNS_URI = "http://palladiosimulator.org/PalladioComponentModel/5.1/bp/OrganizationEnvironmentModel";
 
 	/**
 	 * The package namespace name.

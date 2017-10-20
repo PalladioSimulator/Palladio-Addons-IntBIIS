@@ -49,8 +49,8 @@ import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationEnvironm
 import de.uhd.ifi.se.pcm.bppcm.spec.DayActor;
 import de.uhd.ifi.se.pcm.bppcm.spec.DayProfileActor;
 import de.uhd.ifi.se.pcm.bppcm.spec.Period;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import org.palladiosimulator.pcm.usagemodel.UsageModel;
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.TabHelper;
 
 /**

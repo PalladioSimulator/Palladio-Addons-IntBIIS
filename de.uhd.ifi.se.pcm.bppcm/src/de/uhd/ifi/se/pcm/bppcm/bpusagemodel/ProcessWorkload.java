@@ -2,9 +2,11 @@
  */
 package de.uhd.ifi.se.pcm.bppcm.bpusagemodel;
 
-import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
-
 import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
+
+import org.palladiosimulator.pcm.usagemodel.OpenWorkload;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,16 +15,16 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessWorkload#getProcessTriggerPeriods <em>Process Trigger Periods</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.uhd.ifi.se.pcm.bppcm.bpusagemodel.BpusagemodelPackage#getProcessWorkload()
  * @model
  * @generated
  */
-public interface ProcessWorkload extends OpenWorkload {
+public interface ProcessWorkload extends EObject, OpenWorkload {
 	/**
 	 * Returns the value of the '<em><b>Process Trigger Periods</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessTriggerPeriod}.

@@ -6,8 +6,6 @@ import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationenvironmentmodelPackage;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.Role;
 
-import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -20,16 +18,18 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Role</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.impl.RoleImpl#getActors <em>Actors</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

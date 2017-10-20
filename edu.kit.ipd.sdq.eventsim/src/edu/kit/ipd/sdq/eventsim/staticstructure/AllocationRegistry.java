@@ -6,7 +6,7 @@ import java.util.Map;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 import edu.kit.ipd.sdq.eventsim.staticstructure.commands.BuildResourceAllocation;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 

@@ -21,11 +21,11 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.CoreFactory;
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.qosannotations.provider.SpecifiedQoSAnnotationItemProvider;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SpecifiedExecutionTime;
+import org.palladiosimulator.pcm.core.CoreFactory;
+import org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin;
+import org.palladiosimulator.pcm.qosannotations.provider.SpecifiedQoSAnnotationItemProvider;
+import org.palladiosimulator.pcm.qosannotations.qos_performance.QosPerformancePackage;
+import org.palladiosimulator.pcm.qosannotations.qos_performance.SpecifiedExecutionTime;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SpecifiedExecutionTime} object.

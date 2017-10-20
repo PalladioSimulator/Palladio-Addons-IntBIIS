@@ -6,19 +6,19 @@ import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.*;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
-import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
-import de.uka.ipd.sdq.pcm.usagemodel.Workload;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
+
+import org.palladiosimulator.pcm.core.entity.Entity;
+import org.palladiosimulator.pcm.core.entity.NamedElement;
+
+import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
+import org.palladiosimulator.pcm.usagemodel.OpenWorkload;
+import org.palladiosimulator.pcm.usagemodel.Workload;
 
 /**
  * <!-- begin-user-doc -->
@@ -243,13 +243,13 @@ public class BpusagemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement <em>Named Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.core.entity.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.entity.NamedElement
+	 * @see org.palladiosimulator.pcm.core.entity.NamedElement
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
@@ -257,13 +257,13 @@ public class BpusagemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity <em>Entity</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.entity.Entity
+	 * @see org.palladiosimulator.pcm.core.entity.Entity
 	 * @generated
 	 */
 	public Adapter createEntityAdapter() {
@@ -271,13 +271,13 @@ public class BpusagemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction <em>Abstract User Action</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction <em>Abstract User Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction
+	 * @see org.palladiosimulator.pcm.usagemodel.AbstractUserAction
 	 * @generated
 	 */
 	public Adapter createAbstractUserActionAdapter() {
@@ -285,13 +285,13 @@ public class BpusagemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.Workload <em>Workload</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.usagemodel.Workload <em>Workload</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.Workload
+	 * @see org.palladiosimulator.pcm.usagemodel.Workload
 	 * @generated
 	 */
 	public Adapter createWorkloadAdapter() {
@@ -299,13 +299,13 @@ public class BpusagemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload <em>Open Workload</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.usagemodel.OpenWorkload <em>Open Workload</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload
+	 * @see org.palladiosimulator.pcm.usagemodel.OpenWorkload
 	 * @generated
 	 */
 	public Adapter createOpenWorkloadAdapter() {

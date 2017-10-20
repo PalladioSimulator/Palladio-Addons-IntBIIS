@@ -239,9 +239,10 @@ public class SuspendableFCFSResource extends AbstractActiveResource {
         // nothing to do
     }
 
-    public int getQueueLengthFor(SchedulerEntity schedulerEntity) {
-        return this.processQ_NonInterruptable.size() + this.processQ_Interruptable.size();
-    }
+	@Override
+	public int getQueueLengthFor(SchedulerEntity schedulerEntity, int coreID) {
+		return this.processQ_NonInterruptable.size() + this.processQ_Interruptable.size();
+	}
 
     private void switchState(State state) {
         logger.info("Switching state to " + state.toString() + " (t=" + currentSimulationTime() + ")");
@@ -461,5 +462,7 @@ public class SuspendableFCFSResource extends AbstractActiveResource {
         }
 
     }
+
+
 
 }

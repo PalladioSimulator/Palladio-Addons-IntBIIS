@@ -2,7 +2,7 @@ package edu.kit.ipd.sdq.eventsim.staticstructure;
 
 import java.util.List;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
+import org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 
 /**

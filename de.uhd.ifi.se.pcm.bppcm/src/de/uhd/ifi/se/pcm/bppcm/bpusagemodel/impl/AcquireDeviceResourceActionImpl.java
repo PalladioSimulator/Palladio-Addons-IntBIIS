@@ -6,13 +6,15 @@ import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.AcquireDeviceResourceAction;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.BpusagemodelPackage;
 
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
-import de.uka.ipd.sdq.pcm.repository.PassiveResource;
-import de.uka.ipd.sdq.pcm.usagemodel.impl.AbstractUserActionImpl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,12 +22,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.AcquireDeviceResourceActionImpl#getPassiveresource_AcquireAction <em>Passiveresource Acquire Action</em>}</li>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.AcquireDeviceResourceActionImpl#isTimeout <em>Timeout</em>}</li>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.AcquireDeviceResourceActionImpl#getTimeoutValue <em>Timeout Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -39,6 +41,7 @@ public class AcquireDeviceResourceActionImpl extends AbstractUserActionImpl impl
 	 * @ordered
 	 */
 	protected DeviceResource passiveresource_AcquireAction;
+
 	/**
 	 * The default value of the '{@link #isTimeout() <em>Timeout</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -48,6 +51,7 @@ public class AcquireDeviceResourceActionImpl extends AbstractUserActionImpl impl
 	 * @ordered
 	 */
 	protected static final boolean TIMEOUT_EDEFAULT = false;
+
 	/**
 	 * The cached value of the '{@link #isTimeout() <em>Timeout</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -57,6 +61,7 @@ public class AcquireDeviceResourceActionImpl extends AbstractUserActionImpl impl
 	 * @ordered
 	 */
 	protected boolean timeout = TIMEOUT_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getTimeoutValue() <em>Timeout Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -66,6 +71,7 @@ public class AcquireDeviceResourceActionImpl extends AbstractUserActionImpl impl
 	 * @ordered
 	 */
 	protected static final double TIMEOUT_VALUE_EDEFAULT = 0.0;
+
 	/**
 	 * The cached value of the '{@link #getTimeoutValue() <em>Timeout Value</em>}' attribute.
 	 * <!-- begin-user-doc -->

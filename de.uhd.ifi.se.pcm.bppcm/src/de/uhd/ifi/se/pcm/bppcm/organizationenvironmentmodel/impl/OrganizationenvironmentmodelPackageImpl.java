@@ -6,6 +6,10 @@ import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.BpusagemodelPackage;
 
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.BpusagemodelPackageImpl;
 
+import de.uhd.ifi.se.pcm.bppcm.datamodel.DatamodelPackage;
+
+import de.uhd.ifi.se.pcm.bppcm.datamodel.impl.DatamodelPackageImpl;
+
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationEnvironmentModel;
@@ -16,11 +20,11 @@ import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.WorkingPeriod;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
-import de.uka.ipd.sdq.pcm.PcmPackage;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 
-import de.uka.ipd.sdq.pcm.core.CorePackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
 
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.units.UnitsPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -28,6 +32,12 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import org.palladiosimulator.pcm.PcmPackage;
+
+import org.palladiosimulator.pcm.core.CorePackage;
+
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -118,18 +128,25 @@ public class OrganizationenvironmentmodelPackageImpl extends EPackageImpl implem
 		isInited = true;
 
 		// Initialize simple dependencies
+		IdentifierPackage.eINSTANCE.eClass();
 		PcmPackage.eINSTANCE.eClass();
+		ProbfunctionPackage.eINSTANCE.eClass();
+		StoexPackage.eINSTANCE.eClass();
+		UnitsPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		BpusagemodelPackageImpl theBpusagemodelPackage = (BpusagemodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BpusagemodelPackage.eNS_URI) instanceof BpusagemodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BpusagemodelPackage.eNS_URI) : BpusagemodelPackage.eINSTANCE);
+		DatamodelPackageImpl theDatamodelPackage = (DatamodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DatamodelPackage.eNS_URI) instanceof DatamodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DatamodelPackage.eNS_URI) : DatamodelPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theOrganizationenvironmentmodelPackage.createPackageContents();
 		theBpusagemodelPackage.createPackageContents();
+		theDatamodelPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theOrganizationenvironmentmodelPackage.initializePackageContents();
 		theBpusagemodelPackage.initializePackageContents();
+		theDatamodelPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theOrganizationenvironmentmodelPackage.freeze();

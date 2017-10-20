@@ -2,8 +2,10 @@
  */
 package de.uhd.ifi.se.pcm.bppcm.bpusagemodel;
 
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
-import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
+import org.eclipse.emf.ecore.EObject;
+
+import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
+import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,16 +14,16 @@ import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.Activity#getScenario <em>Scenario</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.uhd.ifi.se.pcm.bppcm.bpusagemodel.BpusagemodelPackage#getActivity()
  * @model
  * @generated
  */
-public interface Activity extends AbstractUserAction {
+public interface Activity extends EObject, AbstractUserAction {
 	/**
 	 * Returns the value of the '<em><b>Scenario</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

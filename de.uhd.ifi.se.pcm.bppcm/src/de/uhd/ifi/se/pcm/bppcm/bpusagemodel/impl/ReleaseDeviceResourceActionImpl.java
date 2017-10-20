@@ -6,13 +6,15 @@ import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.BpusagemodelPackage;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ReleaseDeviceResourceAction;
 
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
-import de.uka.ipd.sdq.pcm.repository.PassiveResource;
-import de.uka.ipd.sdq.pcm.usagemodel.impl.AbstractUserActionImpl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,10 +22,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.ReleaseDeviceResourceActionImpl#getPassiveresource_ReleaseAction <em>Passiveresource Release Action</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -37,6 +39,7 @@ public class ReleaseDeviceResourceActionImpl extends AbstractUserActionImpl impl
 	 * @ordered
 	 */
 	protected DeviceResource passiveresource_ReleaseAction;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

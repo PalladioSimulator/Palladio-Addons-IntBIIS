@@ -7,7 +7,7 @@ import org.eclipse.emf.common.util.EList;
 
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessTriggerPeriod;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessWorkload;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.probespec.framework.RequestContext;
 import de.uka.ipd.sdq.probespec.framework.garbagecollection.IRegionBasedGarbageCollector;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;

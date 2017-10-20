@@ -6,8 +6,6 @@ import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.BpusagemodelPackage;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessTriggerPeriod;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessWorkload;
 
-import de.uka.ipd.sdq.pcm.usagemodel.impl.OpenWorkloadImpl;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -20,16 +18,18 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.palladiosimulator.pcm.usagemodel.impl.OpenWorkloadImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Process Workload</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.ProcessWorkloadImpl#getProcessTriggerPeriods <em>Process Trigger Periods</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

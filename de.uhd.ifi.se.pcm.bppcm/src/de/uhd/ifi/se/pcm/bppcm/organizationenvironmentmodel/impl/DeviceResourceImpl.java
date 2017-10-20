@@ -5,10 +5,6 @@ package de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.impl;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationenvironmentmodelPackage;
 
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-
-import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -17,16 +13,20 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.palladiosimulator.pcm.core.PCMRandomVariable;
+
+import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Device Resource</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.impl.DeviceResourceImpl#getCapacity <em>Capacity</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

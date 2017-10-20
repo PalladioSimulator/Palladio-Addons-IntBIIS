@@ -7,8 +7,6 @@ import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.Organizationenvironm
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.Role;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.WorkingPeriod;
 
-import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -22,17 +20,19 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Actor Resource</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.impl.ActorResourceImpl#getWorkingPeriods <em>Working Periods</em>}</li>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.impl.ActorResourceImpl#getRoles <em>Roles</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

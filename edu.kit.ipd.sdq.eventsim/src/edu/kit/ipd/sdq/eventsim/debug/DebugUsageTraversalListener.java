@@ -2,7 +2,7 @@ package edu.kit.ipd.sdq.eventsim.debug;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
+import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
 import edu.kit.ipd.sdq.eventsim.entities.User;
 import edu.kit.ipd.sdq.eventsim.interpreter.listener.IUsageTraversalListener;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.UserState;

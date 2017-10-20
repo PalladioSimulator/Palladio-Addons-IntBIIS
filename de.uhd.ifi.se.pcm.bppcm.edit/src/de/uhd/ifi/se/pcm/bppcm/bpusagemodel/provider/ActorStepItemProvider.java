@@ -6,9 +6,6 @@ package de.uhd.ifi.se.pcm.bppcm.bpusagemodel.provider;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.BpusagemodelPackage;
 
-import de.uka.ipd.sdq.pcm.core.CoreFactory;
-import de.uka.ipd.sdq.pcm.usagemodel.provider.AbstractUserActionItemProvider;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -18,15 +15,15 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import org.palladiosimulator.pcm.core.CoreFactory;
+
+import org.palladiosimulator.pcm.usagemodel.provider.AbstractUserActionItemProvider;
 
 /**
  * This is the item provider adapter for a {@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep} object.
@@ -34,14 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ActorStepItemProvider
-	extends AbstractUserActionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class ActorStepItemProvider extends AbstractUserActionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -67,8 +57,32 @@ public class ActorStepItemProvider
 			addResponsibleRolePropertyDescriptor(object);
 			addContinuouslyPerformedPropertyDescriptor(object);
 			addInterruptablePropertyDescriptor(object);
+			addOutputDataObjectsPropertyDescriptor(object);
+			addInputDataObjectsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Resting Time feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRestingTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ActorStep_restingTime_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ActorStep_restingTime_feature", "_UI_ActorStep_type"),
+				 BpusagemodelPackage.Literals.ACTOR_STEP__RESTING_TIME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -138,23 +152,45 @@ public class ActorStepItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Resting Time feature.
+	 * This adds a property descriptor for the Output Data Objects feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRestingTimePropertyDescriptor(Object object) {
+	protected void addOutputDataObjectsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ActorStep_restingTime_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ActorStep_restingTime_feature", "_UI_ActorStep_type"),
-				 BpusagemodelPackage.Literals.ACTOR_STEP__RESTING_TIME,
+				 getString("_UI_ActorStep_outputDataObjects_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ActorStep_outputDataObjects_feature", "_UI_ActorStep_type"),
+				 BpusagemodelPackage.Literals.ACTOR_STEP__OUTPUT_DATA_OBJECTS,
 				 true,
 				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Input Data Objects feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInputDataObjectsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ActorStep_inputDataObjects_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ActorStep_inputDataObjects_feature", "_UI_ActorStep_type"),
+				 BpusagemodelPackage.Literals.ACTOR_STEP__INPUT_DATA_OBJECTS,
+				 true,
 				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -213,6 +249,7 @@ public class ActorStepItemProvider
 			getString("_UI_ActorStep_type") :
 			getString("_UI_ActorStep_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

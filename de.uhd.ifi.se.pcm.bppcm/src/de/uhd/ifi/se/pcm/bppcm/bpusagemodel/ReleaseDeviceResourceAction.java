@@ -3,8 +3,10 @@
 package de.uhd.ifi.se.pcm.bppcm.bpusagemodel;
 
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
-import de.uka.ipd.sdq.pcm.repository.PassiveResource;
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
+
+import org.eclipse.emf.ecore.EObject;
+
+import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,17 +15,16 @@ import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ReleaseDeviceResourceAction#getPassiveresource_ReleaseAction <em>Passiveresource Release Action</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.uhd.ifi.se.pcm.bppcm.bpusagemodel.BpusagemodelPackage#getReleaseDeviceResourceAction()
  * @model
  * @generated
  */
-public interface ReleaseDeviceResourceAction extends AbstractUserAction {
-
+public interface ReleaseDeviceResourceAction extends EObject, AbstractUserAction {
 	/**
 	 * Returns the value of the '<em><b>Passiveresource Release Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -49,4 +50,5 @@ public interface ReleaseDeviceResourceAction extends AbstractUserAction {
 	 * @generated
 	 */
 	void setPassiveresource_ReleaseAction(DeviceResource value);
+
 } // ReleaseDeviceResourceAction

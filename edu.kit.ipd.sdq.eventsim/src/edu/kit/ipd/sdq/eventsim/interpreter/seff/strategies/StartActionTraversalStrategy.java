@@ -1,6 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.interpreter.seff.strategies;
 
-import de.uka.ipd.sdq.pcm.seff.StartAction;
+import org.palladiosimulator.pcm.seff.StartAction;
 import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.interpreter.seff.IRequestTraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.interpreter.seff.ISeffTraversalStrategy;

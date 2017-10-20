@@ -8,8 +8,6 @@ import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationEnvironm
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationenvironmentmodelPackage;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.Role;
 
-import de.uka.ipd.sdq.pcm.core.entity.impl.NamedElementImpl;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -22,18 +20,20 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Organization Environment Model</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.impl.OrganizationEnvironmentModelImpl#getRoles <em>Roles</em>}</li>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.impl.OrganizationEnvironmentModelImpl#getActorResources <em>Actor Resources</em>}</li>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.impl.OrganizationEnvironmentModelImpl#getDeviceResources <em>Device Resources</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

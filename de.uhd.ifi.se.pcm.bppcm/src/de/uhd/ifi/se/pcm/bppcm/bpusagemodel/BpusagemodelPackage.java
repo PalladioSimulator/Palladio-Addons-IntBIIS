@@ -4,12 +4,12 @@ package de.uhd.ifi.se.pcm.bppcm.bpusagemodel;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
+import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +41,7 @@ public interface BpusagemodelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/5.0/bp/bpUsageModel";
+	String eNS_URI = "http://palladiosimulator.org/PalladioComponentModel/5.1/bp/bpUsageModel";
 
 	/**
 	 * The package namespace name.
@@ -160,13 +160,31 @@ public interface BpusagemodelPackage extends EPackage {
 	int ACTOR_STEP__INTERRUPTABLE = UsagemodelPackage.ABSTRACT_USER_ACTION_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Output Data Objects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_STEP__OUTPUT_DATA_OBJECTS = UsagemodelPackage.ABSTRACT_USER_ACTION_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Input Data Objects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR_STEP__INPUT_DATA_OBJECTS = UsagemodelPackage.ABSTRACT_USER_ACTION_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Actor Step</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_STEP_FEATURE_COUNT = UsagemodelPackage.ABSTRACT_USER_ACTION_FEATURE_COUNT + 5;
+	int ACTOR_STEP_FEATURE_COUNT = UsagemodelPackage.ABSTRACT_USER_ACTION_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.ActivityImpl <em>Activity</em>}' class.
@@ -341,7 +359,6 @@ public interface BpusagemodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROCESS_TRIGGER_PERIOD_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
-
 
 	/**
 	 * The meta object id for the '{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.AcquireDeviceResourceActionImpl <em>Acquire Device Resource Action</em>}' class.
@@ -519,6 +536,28 @@ public interface BpusagemodelPackage extends EPackage {
 	EClass getActorStep();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep#getProcessingTime <em>Processing Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Processing Time</em>'.
+	 * @see de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep#getProcessingTime()
+	 * @see #getActorStep()
+	 * @generated
+	 */
+	EReference getActorStep_ProcessingTime();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep#getRestingTime <em>Resting Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Resting Time</em>'.
+	 * @see de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep#getRestingTime()
+	 * @see #getActorStep()
+	 * @generated
+	 */
+	EAttribute getActorStep_RestingTime();
+
+	/**
 	 * Returns the meta object for the reference '{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep#getResponsibleRole <em>Responsible Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -552,26 +591,26 @@ public interface BpusagemodelPackage extends EPackage {
 	EAttribute getActorStep_Interruptable();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep#getProcessingTime <em>Processing Time</em>}'.
+	 * Returns the meta object for the reference list '{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep#getOutputDataObjects <em>Output Data Objects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Processing Time</em>'.
-	 * @see de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep#getProcessingTime()
+	 * @return the meta object for the reference list '<em>Output Data Objects</em>'.
+	 * @see de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep#getOutputDataObjects()
 	 * @see #getActorStep()
 	 * @generated
 	 */
-	EReference getActorStep_ProcessingTime();
+	EReference getActorStep_OutputDataObjects();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep#getRestingTime <em>Resting Time</em>}'.
+	 * Returns the meta object for the reference list '{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep#getInputDataObjects <em>Input Data Objects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Resting Time</em>'.
-	 * @see de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep#getRestingTime()
+	 * @return the meta object for the reference list '<em>Input Data Objects</em>'.
+	 * @see de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep#getInputDataObjects()
 	 * @see #getActorStep()
 	 * @generated
 	 */
-	EAttribute getActorStep_RestingTime();
+	EReference getActorStep_InputDataObjects();
 
 	/**
 	 * Returns the meta object for class '{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.Activity <em>Activity</em>}'.
@@ -637,17 +676,6 @@ public interface BpusagemodelPackage extends EPackage {
 	EReference getProcessTriggerPeriod_InterArrivalTime_ProcessWorkload();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessTriggerPeriod#getPeriodEndTimePoint <em>Period End Time Point</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Period End Time Point</em>'.
-	 * @see de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessTriggerPeriod#getPeriodEndTimePoint()
-	 * @see #getProcessTriggerPeriod()
-	 * @generated
-	 */
-	EAttribute getProcessTriggerPeriod_PeriodEndTimePoint();
-
-	/**
 	 * Returns the meta object for the attribute '{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessTriggerPeriod#getPeriodStartTimePoint <em>Period Start Time Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -657,6 +685,17 @@ public interface BpusagemodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProcessTriggerPeriod_PeriodStartTimePoint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessTriggerPeriod#getPeriodEndTimePoint <em>Period End Time Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Period End Time Point</em>'.
+	 * @see de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessTriggerPeriod#getPeriodEndTimePoint()
+	 * @see #getProcessTriggerPeriod()
+	 * @generated
+	 */
+	EAttribute getProcessTriggerPeriod_PeriodEndTimePoint();
 
 	/**
 	 * Returns the meta object for class '{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.AcquireDeviceResourceAction <em>Acquire Device Resource Action</em>}'.
@@ -755,6 +794,22 @@ public interface BpusagemodelPackage extends EPackage {
 		EClass ACTOR_STEP = eINSTANCE.getActorStep();
 
 		/**
+		 * The meta object literal for the '<em><b>Processing Time</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTOR_STEP__PROCESSING_TIME = eINSTANCE.getActorStep_ProcessingTime();
+
+		/**
+		 * The meta object literal for the '<em><b>Resting Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTOR_STEP__RESTING_TIME = eINSTANCE.getActorStep_RestingTime();
+
+		/**
 		 * The meta object literal for the '<em><b>Responsible Role</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -779,20 +834,20 @@ public interface BpusagemodelPackage extends EPackage {
 		EAttribute ACTOR_STEP__INTERRUPTABLE = eINSTANCE.getActorStep_Interruptable();
 
 		/**
-		 * The meta object literal for the '<em><b>Processing Time</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Output Data Objects</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ACTOR_STEP__PROCESSING_TIME = eINSTANCE.getActorStep_ProcessingTime();
+		EReference ACTOR_STEP__OUTPUT_DATA_OBJECTS = eINSTANCE.getActorStep_OutputDataObjects();
 
 		/**
-		 * The meta object literal for the '<em><b>Resting Time</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Input Data Objects</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ACTOR_STEP__RESTING_TIME = eINSTANCE.getActorStep_RestingTime();
+		EReference ACTOR_STEP__INPUT_DATA_OBJECTS = eINSTANCE.getActorStep_InputDataObjects();
 
 		/**
 		 * The meta object literal for the '{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.ActivityImpl <em>Activity</em>}' class.
@@ -849,20 +904,20 @@ public interface BpusagemodelPackage extends EPackage {
 		EReference PROCESS_TRIGGER_PERIOD__INTER_ARRIVAL_TIME_PROCESS_WORKLOAD = eINSTANCE.getProcessTriggerPeriod_InterArrivalTime_ProcessWorkload();
 
 		/**
-		 * The meta object literal for the '<em><b>Period End Time Point</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROCESS_TRIGGER_PERIOD__PERIOD_END_TIME_POINT = eINSTANCE.getProcessTriggerPeriod_PeriodEndTimePoint();
-
-		/**
 		 * The meta object literal for the '<em><b>Period Start Time Point</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute PROCESS_TRIGGER_PERIOD__PERIOD_START_TIME_POINT = eINSTANCE.getProcessTriggerPeriod_PeriodStartTimePoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Period End Time Point</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROCESS_TRIGGER_PERIOD__PERIOD_END_TIME_POINT = eINSTANCE.getProcessTriggerPeriod_PeriodEndTimePoint();
 
 		/**
 		 * The meta object literal for the '{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.AcquireDeviceResourceActionImpl <em>Acquire Device Resource Action</em>}' class.

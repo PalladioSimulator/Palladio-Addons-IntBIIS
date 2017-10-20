@@ -51,11 +51,11 @@ import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationEnvironm
 import de.uhd.ifi.se.pcm.bppcm.spec.Day;
 import de.uhd.ifi.se.pcm.bppcm.spec.DayProfile;
 import de.uhd.ifi.se.pcm.bppcm.spec.ProcessTriggerPeriodSpecification;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
-import de.uka.ipd.sdq.pcm.usagemodel.Workload;
+import org.palladiosimulator.pcm.usagemodel.UsageModel;
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
+import org.palladiosimulator.pcm.usagemodel.Workload;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.TabHelper;
-import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
+import org.palladiosimulator.analyzer.workflow.ConstantsContainer;
 /**
  * ProcessCalendar which extends from ViewPart is a View.
  * It visualizes a Group of elements to choose and load

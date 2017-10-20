@@ -22,11 +22,11 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.seff.provider.AbstractInternalControlFlowActionItemProvider;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
+import org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin;
+import org.palladiosimulator.pcm.seff.provider.AbstractInternalControlFlowActionItemProvider;
+import org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction;
+import org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityFactory;
+import org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction} object.

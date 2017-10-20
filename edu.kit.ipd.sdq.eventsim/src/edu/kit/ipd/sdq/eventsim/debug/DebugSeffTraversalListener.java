@@ -2,7 +2,7 @@ package edu.kit.ipd.sdq.eventsim.debug;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
+import org.palladiosimulator.pcm.seff.AbstractAction;
 import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.interpreter.listener.ISeffTraversalListener;
 import edu.kit.ipd.sdq.eventsim.interpreter.seff.SeffBehaviourInterpreter;

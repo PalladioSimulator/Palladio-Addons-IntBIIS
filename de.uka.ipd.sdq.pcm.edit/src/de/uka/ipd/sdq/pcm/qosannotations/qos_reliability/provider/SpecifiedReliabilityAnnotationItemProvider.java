@@ -21,11 +21,11 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.qosannotations.provider.SpecifiedQoSAnnotationItemProvider;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation;
-import de.uka.ipd.sdq.pcm.reliability.ReliabilityFactory;
+import org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin;
+import org.palladiosimulator.pcm.qosannotations.provider.SpecifiedQoSAnnotationItemProvider;
+import org.palladiosimulator.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
+import org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation;
+import org.palladiosimulator.pcm.reliability.ReliabilityFactory;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation} object.

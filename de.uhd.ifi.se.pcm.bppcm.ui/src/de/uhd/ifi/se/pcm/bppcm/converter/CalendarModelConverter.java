@@ -11,10 +11,10 @@ import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.Organizationenvironm
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.WorkingPeriod;
 import de.uhd.ifi.se.pcm.bppcm.ui.ActorCalendar;
 import de.uhd.ifi.se.pcm.bppcm.ui.ProcessCalendar;
-import de.uka.ipd.sdq.pcm.core.CoreFactory;
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
-import de.uka.ipd.sdq.pcm.usagemodel.Workload;
+import org.palladiosimulator.pcm.core.CoreFactory;
+import org.palladiosimulator.pcm.core.PCMRandomVariable;
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
+import org.palladiosimulator.pcm.usagemodel.Workload;
 
 /**
  * CalendarModelConverter updates the model by information

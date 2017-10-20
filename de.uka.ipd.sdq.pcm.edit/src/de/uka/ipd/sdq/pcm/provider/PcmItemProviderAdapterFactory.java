@@ -5,8 +5,8 @@
  */
 package de.uka.ipd.sdq.pcm.provider;
 
-import de.uka.ipd.sdq.pcm.PcmPackage;
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+import org.palladiosimulator.pcm.PcmPackage;
+import org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -30,7 +30,7 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import de.uka.ipd.sdq.pcm.util.PcmAdapterFactory;
+import org.palladiosimulator.pcm.util.PcmAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.

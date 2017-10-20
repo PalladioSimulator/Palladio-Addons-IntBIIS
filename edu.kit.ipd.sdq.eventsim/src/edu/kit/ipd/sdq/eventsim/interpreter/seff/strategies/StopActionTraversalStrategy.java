@@ -1,6 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.interpreter.seff.strategies;
 
-import de.uka.ipd.sdq.pcm.seff.StopAction;
+import org.palladiosimulator.pcm.seff.StopAction;
 import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.events.ResumeUsageTraversalEvent;
 import edu.kit.ipd.sdq.eventsim.interpreter.seff.IRequestTraversalInstruction;

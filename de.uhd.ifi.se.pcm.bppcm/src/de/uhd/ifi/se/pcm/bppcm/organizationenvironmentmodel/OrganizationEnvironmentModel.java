@@ -2,9 +2,11 @@
  */
 package de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel;
 
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-
 import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
+
+import org.palladiosimulator.pcm.core.entity.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,18 +15,18 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationEnvironmentModel#getRoles <em>Roles</em>}</li>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationEnvironmentModel#getActorResources <em>Actor Resources</em>}</li>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationEnvironmentModel#getDeviceResources <em>Device Resources</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationenvironmentmodelPackage#getOrganizationEnvironmentModel()
  * @model
  * @generated
  */
-public interface OrganizationEnvironmentModel extends NamedElement {
+public interface OrganizationEnvironmentModel extends EObject, NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Roles</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.Role}.

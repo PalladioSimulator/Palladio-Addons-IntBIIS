@@ -1,6 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.interpreter.seff;
 
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
+import org.palladiosimulator.pcm.seff.AbstractAction;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.RequestState;
 

@@ -21,7 +21,7 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.util.QosPerformanceAdapterFactory;
+import org.palladiosimulator.pcm.qosannotations.qos_performance.util.QosPerformanceAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.

@@ -2,8 +2,8 @@ package edu.kit.ipd.sdq.eventsim.interpreter.seff.strategies;
 
 import java.util.List;
 
-import de.uka.ipd.sdq.pcm.seff.ForkAction;
-import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
+import org.palladiosimulator.pcm.seff.ForkAction;
+import org.palladiosimulator.pcm.seff.ForkedBehaviour;
 import edu.kit.ipd.sdq.eventsim.entities.ForkedRequest;
 import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.events.BeginForkedBehaviourTraversalEvent;

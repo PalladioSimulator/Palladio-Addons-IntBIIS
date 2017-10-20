@@ -27,7 +27,7 @@ public class BpusagemodelFactoryImpl extends EFactoryImpl implements Bpusagemode
 	 */
 	public static BpusagemodelFactory init() {
 		try {
-			BpusagemodelFactory theBpusagemodelFactory = (BpusagemodelFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/5.0/bp/bpUsageModel"); 
+			BpusagemodelFactory theBpusagemodelFactory = (BpusagemodelFactory)EPackage.Registry.INSTANCE.getEFactory(BpusagemodelPackage.eNS_URI);
 			if (theBpusagemodelFactory != null) {
 				return theBpusagemodelFactory;
 			}

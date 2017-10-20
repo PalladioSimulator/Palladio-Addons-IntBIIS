@@ -23,7 +23,7 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import de.uka.ipd.sdq.pcm.parameter.util.ParameterAdapterFactory;
+import org.palladiosimulator.pcm.parameter.util.ParameterAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.

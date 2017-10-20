@@ -1,6 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.interpreter.state;
 
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
+import org.palladiosimulator.pcm.seff.AbstractAction;
 import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.staticstructure.ComponentInstance;
 

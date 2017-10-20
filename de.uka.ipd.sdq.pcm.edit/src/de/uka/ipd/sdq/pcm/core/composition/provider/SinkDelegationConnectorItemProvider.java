@@ -19,9 +19,9 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector;
-import de.uka.ipd.sdq.pcm.repository.provider.DelegationConnectorItemProvider;
+import org.palladiosimulator.pcm.core.composition.CompositionPackage;
+import org.palladiosimulator.pcm.core.composition.SinkDelegationConnector;
+import org.palladiosimulator.pcm.core.composition.provider.DelegationConnectorItemProvider;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector} object.

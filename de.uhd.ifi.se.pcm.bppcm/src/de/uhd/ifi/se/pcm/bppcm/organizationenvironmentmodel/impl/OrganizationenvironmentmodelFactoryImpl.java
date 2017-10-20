@@ -27,7 +27,7 @@ public class OrganizationenvironmentmodelFactoryImpl extends EFactoryImpl implem
 	 */
 	public static OrganizationenvironmentmodelFactory init() {
 		try {
-			OrganizationenvironmentmodelFactory theOrganizationenvironmentmodelFactory = (OrganizationenvironmentmodelFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/5.0/bp/OrganizationEnvironmentModel"); 
+			OrganizationenvironmentmodelFactory theOrganizationenvironmentmodelFactory = (OrganizationenvironmentmodelFactory)EPackage.Registry.INSTANCE.getEFactory(OrganizationenvironmentmodelPackage.eNS_URI);
 			if (theOrganizationenvironmentmodelFactory != null) {
 				return theOrganizationenvironmentmodelFactory;
 			}

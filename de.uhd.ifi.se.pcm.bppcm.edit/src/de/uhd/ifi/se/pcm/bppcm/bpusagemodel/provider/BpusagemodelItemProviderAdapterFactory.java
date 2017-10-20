@@ -6,12 +6,6 @@ import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.BpusagemodelFactory;
 
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.util.BpusagemodelAdapterFactory;
 
-import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-
-import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelSwitch;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -40,6 +34,12 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
+import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
+
+import org.palladiosimulator.pcm.usagemodel.util.UsagemodelSwitch;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -437,8 +437,8 @@ public class BpusagemodelItemProviderAdapterFactory extends BpusagemodelAdapterF
 		 */
 		public Collection<Object> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
 			ArrayList<Object> result = new ArrayList<Object>();
-		   new CreationSwitch(result, editingDomain).doSwitch((EObject)object);
-		   return result;
+			new CreationSwitch(result, editingDomain).doSwitch((EObject)object);
+			return result;
 		}
 
 		/**

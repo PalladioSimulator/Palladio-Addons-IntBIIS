@@ -3,7 +3,7 @@ package edu.kit.ipd.sdq.simulation.bpscheduler.test;
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -836,7 +836,7 @@ public class TestStoppableFCFSResource {
 
             // System.out.println("Process " + getName() + " started lifecyle");
 
-            ((MockupSchedulerModel) getModel()).getResource().process(this, 1, demand);
+            ((MockupSchedulerModel) getModel()).getResource().process(this, 1, null, demand);
         }
 
         @Override

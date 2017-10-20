@@ -7,8 +7,6 @@ import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ProcessTriggerPeriod;
 
 import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -17,18 +15,20 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.palladiosimulator.pcm.core.PCMRandomVariable;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Process Trigger Period</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.ProcessTriggerPeriodImpl#getInterArrivalTime_ProcessWorkload <em>Inter Arrival Time Process Workload</em>}</li>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.ProcessTriggerPeriodImpl#getPeriodStartTimePoint <em>Period Start Time Point</em>}</li>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl.ProcessTriggerPeriodImpl#getPeriodEndTimePoint <em>Period End Time Point</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -150,27 +150,6 @@ public class ProcessTriggerPeriodImpl extends IdentifierImpl implements ProcessT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getPeriodEndTimePoint() {
-		return periodEndTimePoint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPeriodEndTimePoint(double newPeriodEndTimePoint) {
-		double oldPeriodEndTimePoint = periodEndTimePoint;
-		periodEndTimePoint = newPeriodEndTimePoint;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BpusagemodelPackage.PROCESS_TRIGGER_PERIOD__PERIOD_END_TIME_POINT, oldPeriodEndTimePoint, periodEndTimePoint));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public double getPeriodStartTimePoint() {
 		return periodStartTimePoint;
 	}
@@ -185,6 +164,27 @@ public class ProcessTriggerPeriodImpl extends IdentifierImpl implements ProcessT
 		periodStartTimePoint = newPeriodStartTimePoint;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, BpusagemodelPackage.PROCESS_TRIGGER_PERIOD__PERIOD_START_TIME_POINT, oldPeriodStartTimePoint, periodStartTimePoint));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getPeriodEndTimePoint() {
+		return periodEndTimePoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPeriodEndTimePoint(double newPeriodEndTimePoint) {
+		double oldPeriodEndTimePoint = periodEndTimePoint;
+		periodEndTimePoint = newPeriodEndTimePoint;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BpusagemodelPackage.PROCESS_TRIGGER_PERIOD__PERIOD_END_TIME_POINT, oldPeriodEndTimePoint, periodEndTimePoint));
 	}
 
 	/**

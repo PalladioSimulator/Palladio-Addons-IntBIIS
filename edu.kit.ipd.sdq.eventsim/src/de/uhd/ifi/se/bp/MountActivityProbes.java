@@ -3,8 +3,8 @@ package de.uhd.ifi.se.bp;
 import java.util.Set;
 
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.Activity;
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.probespec.framework.ProbeType;
 import de.uka.ipd.sdq.probespec.framework.utils.ProbeSpecUtils;

@@ -2,12 +2,12 @@ package edu.kit.ipd.sdq.eventsim;
 
 import java.util.Map;
 
-import de.uka.ipd.sdq.pcm.allocation.Allocation;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
+import org.palladiosimulator.pcm.allocation.Allocation;
+import org.palladiosimulator.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simucomframework.SimuComDefaultRandomNumberGenerator;
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
-import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
+import org.palladiosimulator.analyzer.workflow.ConstantsContainer;
 
 /**
  * This class encapsulates the configuration of an EventSim simulation run. The configuration is

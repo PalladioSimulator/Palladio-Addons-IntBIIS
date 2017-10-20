@@ -1,6 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.entities;
 
-import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
+import org.palladiosimulator.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.probespec.framework.RequestContext;
 import de.uka.ipd.sdq.probespec.framework.garbagecollection.IRegionBasedGarbageCollector;
 import edu.kit.ipd.sdq.eventsim.EventSimModel;

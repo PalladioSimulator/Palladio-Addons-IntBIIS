@@ -1,6 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.interpreter.instructions;
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import org.palladiosimulator.pcm.core.entity.Entity;
 import edu.kit.ipd.sdq.eventsim.events.ResumeSeffTraversalEvent;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.interpreter.seff.SeffBehaviourInterpreter;

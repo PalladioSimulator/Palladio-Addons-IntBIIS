@@ -2,9 +2,11 @@
  */
 package de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel;
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-
 import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
+
+import org.palladiosimulator.pcm.core.entity.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,17 +15,17 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource#getWorkingPeriods <em>Working Periods</em>}</li>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource#getRoles <em>Roles</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationenvironmentmodelPackage#getActorResource()
  * @model
  * @generated
  */
-public interface ActorResource extends Entity {
+public interface ActorResource extends EObject, Entity {
 	/**
 	 * Returns the value of the '<em><b>Working Periods</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.WorkingPeriod}.

@@ -19,7 +19,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+import org.palladiosimulator.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.stoex.provider.RandomVariableItemProvider;
 
 /**

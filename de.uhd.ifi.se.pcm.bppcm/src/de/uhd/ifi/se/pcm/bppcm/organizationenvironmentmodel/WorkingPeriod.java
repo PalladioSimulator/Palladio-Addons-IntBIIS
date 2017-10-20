@@ -4,6 +4,8 @@ package de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Working Period</b></em>'.
@@ -11,17 +13,17 @@ import de.uka.ipd.sdq.identifier.Identifier;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.WorkingPeriod#getPeriodStartTimePoint <em>Period Start Time Point</em>}</li>
  *   <li>{@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.WorkingPeriod#getPeriodEndTimePoint <em>Period End Time Point</em>}</li>
  * </ul>
- * </p>
  *
  * @see de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationenvironmentmodelPackage#getWorkingPeriod()
  * @model
  * @generated
  */
-public interface WorkingPeriod extends Identifier {
+public interface WorkingPeriod extends EObject, Identifier {
 	/**
 	 * Returns the value of the '<em><b>Period Start Time Point</b></em>' attribute.
 	 * The default value is <code>"0.0"</code>.
