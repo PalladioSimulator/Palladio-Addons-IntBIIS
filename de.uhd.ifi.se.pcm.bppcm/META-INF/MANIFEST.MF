@@ -10,6 +10,9 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.uhd.ifi.se.pcm.bppcm.bpusagemodel,
  de.uhd.ifi.se.pcm.bppcm.bpusagemodel.impl,
  de.uhd.ifi.se.pcm.bppcm.bpusagemodel.util,
+ de.uhd.ifi.se.pcm.bppcm.datamodel,
+ de.uhd.ifi.se.pcm.bppcm.datamodel.impl,
+ de.uhd.ifi.se.pcm.bppcm.datamodel.util,
  de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel,
  de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.impl,
  de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.util
@@ -17,7 +20,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  de.uka.ipd.sdq.identifier;visibility:=reexport,
- de.uka.ipd.sdq.pcm;visibility:=reexport,
+ org.palladiosimulator.pcm;visibility:=reexport,
  de.uka.ipd.sdq.probfunction;visibility:=reexport,
  de.uka.ipd.sdq.stoex;visibility:=reexport,
  de.uka.ipd.sdq.units;visibility:=reexport

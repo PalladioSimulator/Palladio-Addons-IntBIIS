@@ -7,6 +7,7 @@
 <plugin>
 
    <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated bp -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
@@ -22,6 +23,7 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
+      <!-- @generated bp -->
       <editor
             id="de.uhd.ifi.se.pcm.bppcm.bpusagemodel.presentation.BpusagemodelEditorID"
             name="%_UI_BpusagemodelEditor_label"
@@ -33,6 +35,7 @@
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated bp -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
@@ -48,6 +51,7 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
+      <!-- @generated bp -->
       <editor
             id="de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.presentation.OrganizationenvironmentmodelEditorID"
             name="%_UI_OrganizationenvironmentmodelEditor_label"
@@ -55,6 +59,34 @@
             extensions="organizationenvironmentmodel"
             class="de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.presentation.OrganizationenvironmentmodelEditor"
             contributorClass="de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.presentation.OrganizationenvironmentmodelActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated bp -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.uhd.ifi.se.pcm.bppcm.datamodel.presentation.DatamodelModelWizardID"
+            name="%_UI_DatamodelModelWizard_label"
+            class="de.uhd.ifi.se.pcm.bppcm.datamodel.presentation.DatamodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/DatamodelModelFile.gif">
+         <description>%_UI_DatamodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated bp -->
+      <editor
+            id="de.uhd.ifi.se.pcm.bppcm.datamodel.presentation.DatamodelEditorID"
+            name="%_UI_DatamodelEditor_label"
+            icon="icons/full/obj16/DatamodelModelFile.gif"
+            extensions="datamodel"
+            class="de.uhd.ifi.se.pcm.bppcm.datamodel.presentation.DatamodelEditor"
+            contributorClass="de.uhd.ifi.se.pcm.bppcm.datamodel.presentation.DatamodelActionBarContributor">
       </editor>
    </extension>
 
