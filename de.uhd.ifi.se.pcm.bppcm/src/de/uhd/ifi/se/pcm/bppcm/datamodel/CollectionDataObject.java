@@ -25,7 +25,7 @@ import org.palladiosimulator.pcm.repository.CollectionDataType;
 public interface CollectionDataObject extends DataObject<CollectionDataType> {
 	/**
 	 * Returns the value of the '<em><b>Inner Data Objects</b></em>' reference list.
-	 * The list contents are of type {@link de.uhd.ifi.se.pcm.bppcm.datamodel.DataObject}<code>&lt;?&gt;</code>.
+	 * The list contents are of type {@link de.uhd.ifi.se.pcm.bppcm.datamodel.DataObject}&lt;?>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Inner Data Objects</em>' reference list isn't clear,

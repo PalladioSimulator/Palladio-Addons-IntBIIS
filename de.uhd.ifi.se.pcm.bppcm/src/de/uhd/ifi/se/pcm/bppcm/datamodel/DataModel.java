@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface DataModel extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Data Objects</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uhd.ifi.se.pcm.bppcm.datamodel.DataObject}<code>&lt;?&gt;</code>.
+	 * The list contents are of type {@link de.uhd.ifi.se.pcm.bppcm.datamodel.DataObject}&lt;?>.
 	 * It is bidirectional and its opposite is '{@link de.uhd.ifi.se.pcm.bppcm.datamodel.DataObject#getDataModel <em>Data Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>

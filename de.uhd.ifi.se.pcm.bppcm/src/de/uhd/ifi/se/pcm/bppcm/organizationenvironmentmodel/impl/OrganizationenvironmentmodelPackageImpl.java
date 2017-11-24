@@ -128,11 +128,7 @@ public class OrganizationenvironmentmodelPackageImpl extends EPackageImpl implem
 		isInited = true;
 
 		// Initialize simple dependencies
-		IdentifierPackage.eINSTANCE.eClass();
 		PcmPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
-		StoexPackage.eINSTANCE.eClass();
-		UnitsPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		BpusagemodelPackageImpl theBpusagemodelPackage = (BpusagemodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BpusagemodelPackage.eNS_URI) instanceof BpusagemodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BpusagemodelPackage.eNS_URI) : BpusagemodelPackage.eINSTANCE);

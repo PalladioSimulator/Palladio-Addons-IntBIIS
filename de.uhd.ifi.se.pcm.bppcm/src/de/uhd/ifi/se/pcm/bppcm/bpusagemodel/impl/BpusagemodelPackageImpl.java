@@ -137,11 +137,7 @@ public class BpusagemodelPackageImpl extends EPackageImpl implements Bpusagemode
 		isInited = true;
 
 		// Initialize simple dependencies
-		IdentifierPackage.eINSTANCE.eClass();
 		PcmPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
-		StoexPackage.eINSTANCE.eClass();
-		UnitsPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		OrganizationenvironmentmodelPackageImpl theOrganizationenvironmentmodelPackage = (OrganizationenvironmentmodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(OrganizationenvironmentmodelPackage.eNS_URI) instanceof OrganizationenvironmentmodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(OrganizationenvironmentmodelPackage.eNS_URI) : OrganizationenvironmentmodelPackage.eINSTANCE);
