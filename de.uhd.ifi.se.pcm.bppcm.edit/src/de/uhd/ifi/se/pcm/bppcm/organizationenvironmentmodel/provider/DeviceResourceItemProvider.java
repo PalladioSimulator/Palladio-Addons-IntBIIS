@@ -115,25 +115,25 @@ public class DeviceResourceItemProvider extends EntityItemProvider {
 	 * This returns DeviceResource.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DeviceResource"));
+		return overlayImage(object, getResourceLocator().getImage("full/editor/DeviceResource-icon.png"));
 	}
 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DeviceResource)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DeviceResource_type") :
-			getString("_UI_DeviceResource_type") + " " + label;
+		// --Start manually modified code  
+		return getString("_UI_DeviceResource_type") + " \"" + 
+				((DeviceResource) object).getEntityName() + "\"";
+		// --End manually modified code
 	}
 	
 

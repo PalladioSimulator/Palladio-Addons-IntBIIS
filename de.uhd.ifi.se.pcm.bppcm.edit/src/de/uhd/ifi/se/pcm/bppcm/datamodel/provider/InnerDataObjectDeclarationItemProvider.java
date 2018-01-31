@@ -91,14 +91,16 @@ public class InnerDataObjectDeclarationItemProvider extends NamedElementItemProv
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((InnerDataObjectDeclaration)object).getEntityName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_InnerDataObjectDeclaration_type") :
-			getString("_UI_InnerDataObjectDeclaration_type") + " " + label;
+		// --Start manually modified code
+		InnerDataObjectDeclaration element = (InnerDataObjectDeclaration) object;
+		String dataObjectName = element.getDataObject() != null ? 
+				element.getDataObject().getEntityName() : "";
+		return element.getEntityName() + ": \"" + dataObjectName + "\"";
+		// --End manually modified  code
 	}
 	
 

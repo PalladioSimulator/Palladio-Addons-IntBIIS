@@ -80,25 +80,24 @@ public class RoleItemProvider extends EntityItemProvider {
 	 * This returns Role.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Role"));
+		return overlayImage(object, getResourceLocator().getImage("full/editor/Role-icon.png"));
 	}
 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Role)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Role_type") :
-			getString("_UI_Role_type") + " " + label;
+		// --Start manually modified code
+		return getString("_UI_Role_type") + " \"" + ((Role) object).getEntityName() + "\"";
+		// --End manually modified code
 	}
 	
 

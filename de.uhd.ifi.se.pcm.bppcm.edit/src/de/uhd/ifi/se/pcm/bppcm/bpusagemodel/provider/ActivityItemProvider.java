@@ -100,14 +100,14 @@ public class ActivityItemProvider extends AbstractUserActionItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Activity)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Activity_type") :
-			getString("_UI_Activity_type") + " " + label;
+		// --Start manually modified code
+		return getString("_UI_Activity_type") + " \"" +
+				((Activity) object).getEntityName() + "\"";
+		// --End manually modified code
 	}
 	
 

@@ -207,19 +207,19 @@ public class DatamodelModelWizard extends Wizard implements INewWizard {
 	 * Create a new model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass)datamodelPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		EObject rootObject = datamodelFactory.create(eClass);
-		return rootObject;
+		// --Start manually modified code
+		return DatamodelFactory.eINSTANCE.createDataModel();
+		// --End manually modified code
 	}
 
 	/**
 	 * Do the work after everything is specified.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean performFinish() {
@@ -257,7 +257,9 @@ public class DatamodelModelWizard extends Wizard implements INewWizard {
 							// Save the contents of the resource to the file system.
 							//
 							Map<Object, Object> options = new HashMap<Object, Object>();
-							options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
+							// --Start manually modified code
+							options.put(XMLResource.OPTION_ENCODING, "UTF-8");
+							// --End manually modified code
 							resource.save(options);
 						}
 						catch (Exception exception) {
@@ -566,7 +568,7 @@ public class DatamodelModelWizard extends Wizard implements INewWizard {
 	 * The framework calls this to create the contents of the wizard.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 		@Override
 	public void addPages() {
@@ -611,10 +613,12 @@ public class DatamodelModelWizard extends Wizard implements INewWizard {
 				}
 			}
 		}
-		initialObjectCreationPage = new DatamodelModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(BpEditorPlugin.INSTANCE.getString("_UI_DatamodelModelWizard_label"));
-		initialObjectCreationPage.setDescription(BpEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
-		addPage(initialObjectCreationPage);
+		// --Start manually commented out code
+//		initialObjectCreationPage = new DatamodelModelWizardInitialObjectCreationPage("Whatever2");
+//		initialObjectCreationPage.setTitle(BpEditorPlugin.INSTANCE.getString("_UI_DatamodelModelWizard_label"));
+//		initialObjectCreationPage.setDescription(BpEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+//		addPage(initialObjectCreationPage);
+		// --End manually commented out code
 	}
 
 	/**

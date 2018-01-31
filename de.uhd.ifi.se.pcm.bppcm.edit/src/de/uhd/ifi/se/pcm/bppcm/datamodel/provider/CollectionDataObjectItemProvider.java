@@ -85,14 +85,14 @@ public class CollectionDataObjectItemProvider extends DataObjectItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CollectionDataObject)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CollectionDataObject_type") :
-			getString("_UI_CollectionDataObject_type") + " " + label;
+		// --Start manually modified code
+		return getString("_UI_CollectionDataObject_type") + " \"" + 
+				((CollectionDataObject) object).getEntityName() + "\"";
+		// --End manually modified code
 	}
 	
 

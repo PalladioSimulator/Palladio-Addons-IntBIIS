@@ -95,14 +95,14 @@ public class CompositeDataObjectItemProvider extends DataObjectItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CompositeDataObject)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CompositeDataObject_type") :
-			getString("_UI_CompositeDataObject_type") + " " + label;
+		// --Start manually modified code  
+		return getString("_UI_CompositeDataObject_type") + " \"" + 
+				((CompositeDataObject) object).getEntityName() + "\"";
+		// --End manually modified code
 	}
 	
 

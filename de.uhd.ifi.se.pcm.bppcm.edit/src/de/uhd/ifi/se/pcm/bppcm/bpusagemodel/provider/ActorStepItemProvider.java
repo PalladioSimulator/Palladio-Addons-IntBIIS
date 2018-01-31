@@ -240,14 +240,13 @@ public class ActorStepItemProvider extends AbstractUserActionItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ActorStep)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ActorStep_type") :
-			getString("_UI_ActorStep_type") + " " + label;
+		// --Start manually modified code
+		return getString("_UI_ActorStep_type") + " \"" + ((ActorStep) object).getEntityName() + "\"";
+		// --End manually modified code
 	}
 	
 

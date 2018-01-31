@@ -207,19 +207,19 @@ public class OrganizationenvironmentmodelModelWizard extends Wizard implements I
 	 * Create a new model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass)organizationenvironmentmodelPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		EObject rootObject = organizationenvironmentmodelFactory.create(eClass);
-		return rootObject;
+		// --Start manually modified code
+		return OrganizationenvironmentmodelFactory.eINSTANCE.createOrganizationEnvironmentModel();
+		// --End manually modified code
 	}
 
 	/**
 	 * Do the work after everything is specified.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean performFinish() {
@@ -257,7 +257,9 @@ public class OrganizationenvironmentmodelModelWizard extends Wizard implements I
 							// Save the contents of the resource to the file system.
 							//
 							Map<Object, Object> options = new HashMap<Object, Object>();
-							options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
+							// --Start manually modified code
+							options.put(XMLResource.OPTION_ENCODING, "UTF-8");
+							// --End manually modified code
 							resource.save(options);
 						}
 						catch (Exception exception) {
@@ -566,7 +568,7 @@ public class OrganizationenvironmentmodelModelWizard extends Wizard implements I
 	 * The framework calls this to create the contents of the wizard.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 		@Override
 	public void addPages() {
@@ -611,10 +613,13 @@ public class OrganizationenvironmentmodelModelWizard extends Wizard implements I
 				}
 			}
 		}
-		initialObjectCreationPage = new OrganizationenvironmentmodelModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(BpEditorPlugin.INSTANCE.getString("_UI_OrganizationenvironmentmodelModelWizard_label"));
-		initialObjectCreationPage.setDescription(BpEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
-		addPage(initialObjectCreationPage);
+		
+		// --Start manually commented out code
+//		initialObjectCreationPage = new OrganizationenvironmentmodelModelWizardInitialObjectCreationPage("Whatever2");
+//		initialObjectCreationPage.setTitle(BpEditorPlugin.INSTANCE.getString("_UI_OrganizationenvironmentmodelModelWizard_label"));
+//		initialObjectCreationPage.setDescription(BpEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+//		addPage(initialObjectCreationPage);
+		// --End manually commented out code
 	}
 
 	/**
