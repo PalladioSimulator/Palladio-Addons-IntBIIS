@@ -3,8 +3,10 @@ package de.uhd.ifi.se.pcm.bppcm.resources;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.google.inject.Singleton;
+
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
-import edu.kit.ipd.sdq.eventsim.entities.SimPassiveResource;
+import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 
 /**
@@ -13,6 +15,8 @@ import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
  * @author Robert Heinrich
  * 
  */
+
+@Singleton
 public class DeviceResourceRegistry {
 	
 	// maps DeviceResource ID -> device resource instance

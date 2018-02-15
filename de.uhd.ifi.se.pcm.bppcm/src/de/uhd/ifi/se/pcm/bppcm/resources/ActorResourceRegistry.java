@@ -2,27 +2,51 @@ package de.uhd.ifi.se.pcm.bppcm.resources;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
+
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
+import de.uhd.ifi.se.pcm.bppcm.resources.entities.ActorResourceInstance;
+import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 
 /**
  * This registry maps a given actor resource specification to a specified actor resource instance.
+
  * 
  * @author Robert Heinrich
  *
  */
+@Singleton
 public class ActorResourceRegistry {
-	
+	//TODO: Not completely equal to ActiveResourceRegistry. Need to test if working
 	// maps ActorResource ID -> actor resource instance
     private Map<String, ActorResourceInstance> map;
+    
+    private List<Consumer<ActorResourceInstance>> registrationListeners;
     
     /**
      * Constructs a new registry for actor resources.
      */
     public ActorResourceRegistry() {
         this.map = new HashMap<String, ActorResourceInstance>();
+    }
+    
+    public void addResourceRegistrationListener(Consumer<ActorResourceInstance> listener) {
+        registrationListeners.add(listener);
+    }
+    
+    private void notifyRegistrationListeners(ActorResourceInstance resource) {
+        registrationListeners.forEach(listener -> listener.accept(resource));
+    }
+    public void finalise(){
+    	for(ActorResourceInstance resource : map.values()){
+    		resource.getResource().deactivateResource();
+    	}
     }
     
     /**
@@ -36,6 +60,8 @@ public class ActorResourceRegistry {
      */
     public void registerActorResource(ActorResource specification, ActorResourceInstance instance) {
         map.put(specification.getId(), instance);
+        
+        notifyRegistrationListeners(instance);
     }
     
     /**

@@ -1,13 +1,13 @@
-package de.uhd.ifi.se.bp;
+package de.uhd.ifi.se.pcm.bppcm.command;
 
+import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationEnvironmentModel;
-import edu.kit.ipd.sdq.eventsim.EventSimModel;
-import edu.kit.ipd.sdq.eventsim.PCMModel;
+import edu.kit.ipd.sdq.eventsim.api.PCMModel;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
-import edu.kit.ipd.sdq.eventsim.entities.SimPassiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.ResourceFactory;
+import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
 
 /**
  * Builds up a registry that contains all device resources of the PCM model.
@@ -17,7 +17,7 @@ import edu.kit.ipd.sdq.eventsim.resources.ResourceFactory;
  */
 public class BuildAndRegisterDeviceResources implements IPCMCommand<Void> {
 
-	private final EventSimModel model;
+	private final EventSimModel eventSimModel;
 	
 	/**
      * Constructs a command that builds up a registry containing all device resources of a PCM
@@ -27,14 +27,14 @@ public class BuildAndRegisterDeviceResources implements IPCMCommand<Void> {
      *            the simulation model
      */
     public BuildAndRegisterDeviceResources(EventSimModel model) {
-        this.model = model;
+        this.eventSimModel = model;
     }
 	
 	@Override
-	public Void execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
+	public Void execute(PCMModel model, ICommandExecutor<PCMModel> executor) {
 			
 			// get the organization environment model
-			OrganizationEnvironmentModel oem = model.getOrganizationalModel();
+			OrganizationEnvironmentModel oem = eventSimModel.getOrganizationalModel();
 			
 			// return if the oem is not contained in the model
 			// if only IT is simulated the oem is not required
@@ -46,10 +46,10 @@ public class BuildAndRegisterDeviceResources implements IPCMCommand<Void> {
         for (DeviceResource specification : oem.getDeviceResources()) {
             
         	// create device resource instance
-            SimPassiveResource res = ResourceFactory.createDeviceResource(model, specification);
+            SimPassiveResource res = ResourceFactory.createDeviceResource(eventSimModel, specification);
                    
             // register the created device resource instance
-            model.getDeviceResourceRegistry().registerDeviceResource(specification, res);
+            eventSimModel.getDeviceResourceRegistry().registerDeviceResource(specification, res);
             
         }
         

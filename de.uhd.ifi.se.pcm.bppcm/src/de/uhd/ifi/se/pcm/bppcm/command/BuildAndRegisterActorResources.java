@@ -1,9 +1,10 @@
-package de.uhd.ifi.se.bp;
+package de.uhd.ifi.se.pcm.bppcm.command;
 
+import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationEnvironmentModel;
-import edu.kit.ipd.sdq.eventsim.EventSimModel;
-import edu.kit.ipd.sdq.eventsim.PCMModel;
+import de.uhd.ifi.se.pcm.bppcm.resources.entities.ActorResourceInstance;
+import edu.kit.ipd.sdq.eventsim.api.PCMModel;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
 
@@ -15,7 +16,7 @@ import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
  */
 public class BuildAndRegisterActorResources implements IPCMCommand<Void> {
 
-	private final EventSimModel model;
+	private final EventSimModel eventSimModel;
 	
 	/**
      * Constructs a command that builds up a registry containing all actor resources of a PCM
@@ -25,14 +26,14 @@ public class BuildAndRegisterActorResources implements IPCMCommand<Void> {
      *            the simulation model
      */
     public BuildAndRegisterActorResources(EventSimModel model) {
-        this.model = model;
+        this.eventSimModel = model;
     }
 	
 	@Override
-	public Void execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
+	public Void execute(PCMModel model, ICommandExecutor<PCMModel> executor) {
 			
 			// get the organization environment model
-			OrganizationEnvironmentModel oem = model.getOrganizationalModel();
+			OrganizationEnvironmentModel oem = eventSimModel.getOrganizationalModel();
 			
 			// return if the oem is not contained in the model
 			// if only IT is simulated the oem is not required
@@ -44,10 +45,10 @@ public class BuildAndRegisterActorResources implements IPCMCommand<Void> {
         for (ActorResource specification : oem.getActorResources()) {
             
         	// create actor resource instance
-            ActorResourceInstance actorResourceInstance = new ActorResourceInstance(this.model, specification);
+            ActorResourceInstance actorResourceInstance = new ActorResourceInstance(this.eventSimModel, specification);
 
             // register the created actor resource instance
-            model.getActorResourceRegistry().registerActorResource(specification, actorResourceInstance);
+            eventSimModel.getActorResourceRegistry().registerActorResource(specification, actorResourceInstance);
         }
 		
         // this command is not supposed to return a value
@@ -59,5 +60,7 @@ public class BuildAndRegisterActorResources implements IPCMCommand<Void> {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+
 
 }
