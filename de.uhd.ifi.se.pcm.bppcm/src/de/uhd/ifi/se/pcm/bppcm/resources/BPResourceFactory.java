@@ -19,6 +19,10 @@ import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecifica
 import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentFactory;
 import org.palladiosimulator.pcm.resourcetype.ResourceRepository;
 import org.palladiosimulator.pcm.resourcetype.SchedulingPolicy;
+
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
@@ -37,9 +41,11 @@ import edu.kit.ipd.sdq.pcm.simulation.bpscheduler.SuspendableFCFSResource;
  * @author Robert Heinrich
  * 
  */
+@Singleton
 public class BPResourceFactory {
 	
-	
+	@Inject
+	private ResourceFactory resourceFactory;
 	/**
      * Creates an active resource in accordance with the given resource specification.
      * 
@@ -49,7 +55,7 @@ public class BPResourceFactory {
      *            the resource specification
      * @return the created resource
      */
-    public static SimActiveResource createActiveResource(final EventSimModel model, ActorResource specification) {
+    public SimActiveResource createActiveResource(final EventSimModel model, ActorResource specification) {
   
     	ProcessingResourceSpecification spec = ResourceenvironmentFactory.eINSTANCE.createProcessingResourceSpecification();
     	    	
@@ -67,7 +73,7 @@ public class BPResourceFactory {
     	spec.setSchedulingPolicy(schedulingPolicy);
    
     	// call the original resource factory 
-    	SimActiveResource result = ResourceFactory.createActiveResource(spec);
+    	SimActiveResource result = resourceFactory.createActiveResource(spec);
     	
     	SuspendableFCFSResource x = (SuspendableFCFSResource)result.getSchedulerResource();
     	
@@ -85,24 +91,28 @@ public class BPResourceFactory {
      * @param specification
      *            the resource specification
      * @return the created resource
+     * 
+     * 
+     * TODO SimSimpleFairPassiveResource not usable like this. But not found any usage of this method in old IntBIIS project
+     * 
      */
-    public static SimPassiveResource createPassiveResource(final EventSimModel model,
-            final DeviceResource specification) {
-    	
-    	// obtain capacity by evaluating the associated StoEx
-        final PCMRandomVariable capacitySpecification = specification.getCapacity();
-        final int capacity = StackContext.evaluateStatic(capacitySpecification.getSpecification(), Integer.class);
-
-        final String name = specification.getEntityName();
-        final String resourceId = specification.getId();
-        // set dummy assembly context id
-        final String assemblyContextId = "BusinessProcessContext";
-        final String combinedId = specification.getId();
-        AssemblyContext assemblyContext = CompositionFactory.eINSTANCE.createAssemblyContext();
-        assemblyContext.setId("BusinessProsceeContext");
-        IPassiveResource schedulerResource = new SimSimpleFairPassiveResource(model, capacity, name, resourceId, assemblyContextId, combinedId, false);
-        return new SimPassiveResource(model, schedulerResource);
-    }
+//    public SimPassiveResource createPassiveResource(final EventSimModel model,
+//            final DeviceResource specification) {
+//    	
+//    	// obtain capacity by evaluating the associated StoEx
+//        final PCMRandomVariable capacitySpecification = specification.getCapacity();
+//        final int capacity = StackContext.evaluateStatic(capacitySpecification.getSpecification(), Integer.class);
+//
+//        final String name = specification.getEntityName();
+//        final String resourceId = specification.getId();
+//        // set dummy assembly context id
+//        final String assemblyContextId = "BusinessProcessContext";
+//        final String combinedId = specification.getId();
+//        AssemblyContext assemblyContext = CompositionFactory.eINSTANCE.createAssemblyContext();
+//        assemblyContext.setId("BusinessProsceeContext");
+//        IPassiveResource schedulerResource = new SimSimpleFairPassiveResource(model, capacity, name, resourceId, assemblyContextId, combinedId, false);
+//        return new SimPassiveResource(model, schedulerResource);
+//    }
     
     private static class SuspendEvent extends AbstractSimEventDelegator<SuspendableFCFSResource> {
     	

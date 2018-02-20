@@ -6,11 +6,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
+import org.palladiosimulator.pcm.resourcetype.ResourceType;
+
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
 import de.uhd.ifi.se.pcm.bppcm.resources.entities.ActorResourceInstance;
+import edu.kit.ipd.sdq.eventsim.resources.ResourceFactory;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 
@@ -28,6 +33,8 @@ public class ActorResourceRegistry {
     private Map<String, ActorResourceInstance> map;
     
     private List<Consumer<ActorResourceInstance>> registrationListeners;
+    @Inject
+    private ResourceFactory factory; 
     
     /**
      * Constructs a new registry for actor resources.
@@ -80,6 +87,7 @@ public class ActorResourceRegistry {
         return r;
     }
     
+    
     /**
      * Returns all actor resource instances registered with this registry.
      * 
@@ -87,6 +95,12 @@ public class ActorResourceRegistry {
      */
     public Collection<ActorResourceInstance> getAllActorResourceInstances() {
         return map.values();
+    }
+    
+    public ActorResourceInstance findOrCreateResource(ActorResource specification){
+    	if(!map.containsKey(specification.getId())){
+    		SimActiveResource resource = 
+    	}
     }
 
 }

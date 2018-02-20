@@ -27,7 +27,8 @@ public class ActorResourceInstance extends AbstractSimEntityDelegator {
 		// create the active resource
 		this.resource = BPResourceFactory.createActiveResource(model, specification); 
 		// the name of the actor resource to be displayed
-		this.resource.setDescription(specification.getEntityName());
+		this.resource.getResourceContainer().setEntityName(specification.getEntityName());
+		//this.resource.setDescription(specification.getEntityName());
 		
 	}
 	

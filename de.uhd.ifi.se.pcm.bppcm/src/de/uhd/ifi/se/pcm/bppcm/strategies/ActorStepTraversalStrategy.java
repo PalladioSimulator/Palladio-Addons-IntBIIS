@@ -1,9 +1,11 @@
 package de.uhd.ifi.se.pcm.bppcm.strategies;
 
 
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISActorResourceModel;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep;
 import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
+import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 import edu.kit.ipd.sdq.eventsim.interpreter.SimulationStrategy;
 import edu.kit.ipd.sdq.eventsim.interpreter.TraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
@@ -22,9 +24,11 @@ import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
  * @author Robert Heinrich
  * 
  */
-public class ActorStepTraversalStrategy implements SimulationStrategy<ActorStep, User>{
+public class ActorStepTraversalStrategy implements SimulationStrategy<ActorStep, Request>{
 
     private static final Logger logger = Logger.getLogger(ActorStepTraversalStrategy.class);
+    
+    private IntBIISActorResourceModel ar;
     
 	@Override
 	public ITraversalInstruction<AbstractUserAction, UserState> traverse(
@@ -44,7 +48,7 @@ public class ActorStepTraversalStrategy implements SimulationStrategy<ActorStep,
         
         	final double demand = NumberConverter.toDouble(state.getStoExContext().evaluate(d.getSpecification()));
       
-        	model.getActorResourceRegistry().getActorResourceForContext(selectedActor).getResource().consumeResource(user.getSimulatedProcess(), demand);
+        	ar.consume(specification, request, absoluteDemand, resourceServiceID, onServedCallback);model.getActorResourceRegistry().getActorResourceForContext(selectedActor).getResource().consumeResource(user.getSimulatedProcess(), demand);
         	
         	logger.info("Queue-Legth of " + selectedActor.getEntityName() + " AFTER allocation is: " + model.getActorResourceRegistry().getActorResourceForContext(selectedActor).getResource().getCurrentDemand());
         }
@@ -60,14 +64,22 @@ public class ActorStepTraversalStrategy implements SimulationStrategy<ActorStep,
 	public void simulate(ActorStep action, Request entity, Consumer<TraversalInstruction> onFinishCallback) {
 		// TODO Auto-generated method stub
 		final EventSimModel model = (EventSimModel)entity.getModel();
-		ActorResource selectedActor = model.getDispatcher().dispatchdispatch((User)entity.getUser(),action);
+		ActorResource selectedActor = model.getDispatcher().dispatch((User)entity.getUser(),action);
+		
+		 // allocate the resource demand to the selected actor
+        if (selectedActor != null){
+        	
+        	final PCMRandomVariable d = action.getProcessingTime();
+        
+        	final double demand = NumberConverter.toDouble(state.getStoExContext().evaluate(d.getSpecification()));
+      
+        	ar.consume(selectedActor, entity, demand, resourceServiceID, onServedCallback);model.getActorResourceRegistry().getActorResourceForContext(selectedActor).getResource().consumeResource(user.getSimulatedProcess(), demand);
+        	
+        	logger.info("Queue-Legth of " + selectedActor.getEntityName() + " AFTER allocation is: " + model.getActorResourceRegistry().getActorResourceForContext(selectedActor).getResource().getCurrentDemand());
+        }
 		
 	}
 
-	@Override
-	public void simulate(ActorStep action, User entity, Consumer<TraversalInstruction> onFinishCallback) {
-		final EventSimModel model = (EventSimModel)entity.getModel();
-		ActorResource selectedActor = model.getDispatcher().dispatch(entity, action);
-	}
+	
 
 }

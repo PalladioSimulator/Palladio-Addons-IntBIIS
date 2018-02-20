@@ -1,5 +1,6 @@
 package de.uhd.ifi.se.pcm.bppcm.strategies;
 
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISSimDeviceResource;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.AcquireDeviceResourceAction;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
 
@@ -54,7 +55,8 @@ public class AcquireDeviceResourceTraversalStrategy implements SimulationStrateg
 		// TODO Auto-generated method stub
 		
 		final DeviceResource passiveResouce = action.getPassiveresource_AcquireAction();
-		final SimPassiveResource res = ((EventSimModel)entity.getModel()).getDeviceResourceRegistry().getDeviceResource(passiveResouce);
+		final IntBIISSimDeviceResource res = ((EventSimModel)entity.getModel()).getDeviceResourceRegistry().getDeviceResource(passiveResouce);
+
 		
 	}
 

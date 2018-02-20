@@ -5,15 +5,19 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.osgi.framework.Bundle;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 import org.palladiosimulator.pcm.resourcetype.ResourceInterface;
 import org.palladiosimulator.pcm.resourcetype.ResourceType;
 
 import com.google.inject.Inject;
 
+import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
 import de.uhd.ifi.se.pcm.bppcm.resources.ActorResourceRegistry;
 import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
+import edu.kit.ipd.sdq.eventsim.api.IRequest;
 import edu.kit.ipd.sdq.eventsim.api.ISimulationMiddleware;
 import edu.kit.ipd.sdq.eventsim.api.PCMModel;
+import edu.kit.ipd.sdq.eventsim.api.Procedure;
 import edu.kit.ipd.sdq.eventsim.api.events.SimulationPrepareEvent;
 import edu.kit.ipd.sdq.eventsim.api.events.SimulationStopEvent;
 import edu.kit.ipd.sdq.eventsim.api.events.IEventHandler.Registration;
@@ -107,5 +111,22 @@ public class IntBIISActorResourceModel implements IActorResource {
 	        // clean up scheduler
 	        AbstractActiveResource.cleanProcesses();
 	    }
+	    
+	    @Override
+	    public void consume(final ActorResource specification, final IRequest request, final double absoluteDemand, final int resourceServiceID,
+	            Procedure onServedCallback) {
+	    	
+	    	
+	    	final SimActiveResource resource = actorRegistry.getActorResourceForContext(specification).getResource();
+	    	
+	    	resource.consumeResource(processRegistry.getOrCreateSimulatedProcess(request), absoluteDemand, resourceServiceID, onServedCallback);
+	    	
+//	        if (resource == null) {
+//	            throw new RuntimeException("Could not find a resource of type " + resourceType.getEntityName());
+//	        }
+
+	    }
+	    
+	    
 
 }
