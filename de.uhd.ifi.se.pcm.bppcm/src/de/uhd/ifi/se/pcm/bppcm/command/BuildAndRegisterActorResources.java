@@ -1,5 +1,9 @@
 package de.uhd.ifi.se.pcm.bppcm.command;
 
+import com.google.inject.Inject;
+
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IActorResource;
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISEventSimSystemModel;
 import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationEnvironmentModel;
@@ -16,7 +20,10 @@ import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
  */
 public class BuildAndRegisterActorResources implements IPCMCommand<Void> {
 
-	private final EventSimModel eventSimModel;
+	private final IntBIISEventSimSystemModel eventSimModel;
+	
+	@Inject 
+	IActorResource actorResourceModel;
 	
 	/**
      * Constructs a command that builds up a registry containing all actor resources of a PCM
@@ -25,7 +32,7 @@ public class BuildAndRegisterActorResources implements IPCMCommand<Void> {
      * @param model
      *            the simulation model
      */
-    public BuildAndRegisterActorResources(EventSimModel model) {
+    public BuildAndRegisterActorResources(IntBIISEventSimSystemModel model) {
         this.eventSimModel = model;
     }
 	
@@ -43,12 +50,9 @@ public class BuildAndRegisterActorResources implements IPCMCommand<Void> {
 		
 		// for each actor resource specification
         for (ActorResource specification : oem.getActorResources()) {
-            
-        	// create actor resource instance
-            ActorResourceInstance actorResourceInstance = new ActorResourceInstance(this.eventSimModel, specification);
-
-            // register the created actor resource instance
-            eventSimModel.getActorResourceRegistry().registerActorResource(specification, actorResourceInstance);
+        	
+        	// call ActorResourceModel to build and register the specified ActorResource
+        	this.actorResourceModel.findOrRegisterActorResourceInstance(specification);
         }
 		
         // this command is not supposed to return a value

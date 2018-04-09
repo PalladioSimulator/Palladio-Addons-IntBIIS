@@ -1,12 +1,23 @@
 package de.uhd.ifi.se.pcm.bppcm.strategies;
 
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IDeviceResource;
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.SimDeviceResource;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ReleaseDeviceResourceAction;
+import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
+
+import java.util.function.Consumer;
+
 import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
-import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
-import edu.kit.ipd.sdq.eventsim.interpreter.state.UserState;
-import edu.kit.ipd.sdq.eventsim.interpreter.usage.IUsageTraversalStrategy;
-import edu.kit.ipd.sdq.eventsim.interpreter.usage.instructions.UsageTraversalInstructionFactory;
+
+import com.google.inject.Inject;
+
+
+import edu.kit.ipd.sdq.eventsim.interpreter.SimulationStrategy;
+import edu.kit.ipd.sdq.eventsim.interpreter.TraversalInstruction;
+
+import edu.kit.ipd.sdq.eventsim.system.entities.Request;
+import edu.kit.ipd.sdq.eventsim.workload.entities.User;
 
 /**
  * This traversal strategy is responsible for {@ReleaseDeviceResource} actions.
@@ -16,18 +27,35 @@ import edu.kit.ipd.sdq.eventsim.interpreter.usage.instructions.UsageTraversalIns
  */
 public class ReleaseDeviceResourceTraversalStrategy implements SimulationStrategy<ReleaseDeviceResourceAction, Request>{
 
+	@Inject
+	IDeviceResource dev;
+	
+	
+//	@Override
+//	public ITraversalInstruction<AbstractUserAction, UserState> traverse(
+//			ReleaseDeviceResourceAction action, User entity, UserState state) {
+//		
+//
+//        final DeviceResource passiveResouce = action.getPassiveresource_ReleaseAction();
+//
+//        final SimPassiveResource res = entity.getSimulatedProcess().getModel().getDeviceResourceRegistry().getDeviceResource(passiveResouce);
+//        		
+//        res.release(entity.getSimulatedProcess(), 1);
+//
+//        return UsageTraversalInstructionFactory.traverseNextAction(action.getSuccessor());
+//	}
+
 	@Override
-	public ITraversalInstruction<AbstractUserAction, UserState> traverse(
-			ReleaseDeviceResourceAction action, User entity, UserState state) {
+	public void simulate(ReleaseDeviceResourceAction action, Request entity,
+			Consumer<TraversalInstruction> onFinishCallback) {
+
+		final DeviceResource deviceResource = action.getPassiveresource_ReleaseAction();
 		
-
-        final DeviceResource passiveResouce = action.getPassiveresource_ReleaseAction();
-
-        final SimPassiveResource res = entity.getSimulatedProcess().getModel().getDeviceResourceRegistry().getDeviceResource(passiveResouce);
-        		
-        res.release(entity.getSimulatedProcess(), 1);
-
-        return UsageTraversalInstructionFactory.traverseNextAction(action.getSuccessor());
+		dev.release(entity, deviceResource, 1);
+		
+		onFinishCallback.accept(()->{
+			((User)entity.getUser()).simulateAction(action.getSuccessor());
+		});
 	}
 
 }

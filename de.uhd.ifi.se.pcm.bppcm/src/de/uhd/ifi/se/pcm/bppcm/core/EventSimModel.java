@@ -84,10 +84,10 @@ public class EventSimModel extends SchedulerModel implements ISimulationModel {
 
     // TODO move this to definition to another class
     // TODO mainly, make this work -> scheduling policy only static class, no extendability anymore
-//    public static final SchedulingPolicy BP_FCFS = new SchedulingPolicy("edu.kit.ipd.sdq.pcm.simulation.scheduler.bpfcfs",
-//            "Business Process First-Come First-Served") {
-//        // no abstract methods need to be implemented
-//    };
+    public static final SchedulingPolicy BP_FCFS = new SchedulingPolicy("edu.kit.ipd.sdq.pcm.simulation.scheduler.bpfcfs",
+            "Business Process First-Come First-Served") {
+        // no abstract methods need to be implemented
+    };
     
     // FIXME
     private static final IPath ORGANIZATIONAL_MODEL_LOCATION = new Path("model/My.organizationenvironmentmodel");

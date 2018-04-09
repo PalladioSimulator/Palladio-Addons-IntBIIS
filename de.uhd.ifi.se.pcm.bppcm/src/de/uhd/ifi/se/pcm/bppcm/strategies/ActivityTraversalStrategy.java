@@ -6,9 +6,13 @@ import java.util.function.Consumer;
 
 
 import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
+
+import edu.kit.ipd.sdq.eventsim.api.IUser;
 import edu.kit.ipd.sdq.eventsim.interpreter.SimulationStrategy;
 import edu.kit.ipd.sdq.eventsim.interpreter.TraversalInstruction;
+import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
+
 
 /**
  * This traversal strategy is responsible for {@link Activity} actions.
@@ -16,31 +20,17 @@ import edu.kit.ipd.sdq.eventsim.workload.entities.User;
  * @author Robert Heinrich
  * 
  */
-public class ActivityTraversalStrategy implements SimulationStrategy<Activity, User> {
-
-//	@Override
-//	public ITraversalInstruction<AbstractUserAction, UserState> traverse(
-//			Activity activity, User user, UserState state) {
-//		
-//		// allocate scenario behavior of subprocess
-//		ScenarioBehaviour behaviour = activity.getScenario();
-//		
-//		// traverse the scenario behavior of the subprocess
-//		return UsageTraversalInstructionFactory.traverseScenarioBehaviour(user.getModel(), behaviour, activity.getSuccessor());
-//	}
+public class ActivityTraversalStrategy implements SimulationStrategy<Activity, Request> {
 
 
-
-	@Override
-	public void simulate(Activity action, User entity, Consumer<TraversalInstruction> onFinishCallback) {
-		
-		// allocate scenario behavior of subprocess
-		ScenarioBehaviour behaviour = action.getScenarioBehaviour_AbstractUserAction();
-		
-		entity.simulateBehaviour(behaviour, () -> {
-			onFinishCallback.accept(() -> {
-				entity.simulateAction(action.getSuccessor());
-			});
+@Override
+public void simulate(Activity action, Request entity, Consumer<TraversalInstruction> onFinishCallback) {
+	ScenarioBehaviour behaviour = action.getScenarioBehaviour_AbstractUserAction();
+	User user = (User)entity.getUser();
+	user.simulateBehaviour(behaviour, () -> {
+		onFinishCallback.accept(() -> {
+			user.simulateAction(action.getSuccessor());
 		});
+	});
 	}
 }

@@ -31,7 +31,7 @@ import de.uka.ipd.sdq.simucomframework.resources.PassiveResourceTimeoutEvent;
  * TODO Refused Bequest of IPassiveResource, but no other possibility at the moment other than create IDeviceResource scheduling interface
  * however possibility to break the working mechanism 
  */
-public class IntBIISSimSimpleFairPassiveDeviceResource extends AbstractSimResource implements IPassiveResource{
+public class SimSimpleFairPassiveDeviceResource extends AbstractSimResource implements IPassiveResource{
 
 	
 	protected Queue<IWaitingProcess> waitingQueue;
@@ -44,7 +44,7 @@ public class IntBIISSimSimpleFairPassiveDeviceResource extends AbstractSimResour
     private final PassiveResourceObservee observee;
     private final DeviceResource resource;
 	
-	public IntBIISSimSimpleFairPassiveDeviceResource(final DeviceResource resource, SchedulerModel model, long capacity, String name, String id) {
+	public SimSimpleFairPassiveDeviceResource(final DeviceResource resource, SchedulerModel model, long capacity, String name, String id) {
 		super(model, capacity, name, id);
 		this.resource = resource;
 		
@@ -131,7 +131,7 @@ public class IntBIISSimSimpleFairPassiveDeviceResource extends AbstractSimResour
 //                            this.passiveResourceID));
         }
         if (timeoutValue > 0.0) {
-            final IntBIISPassiveDeviceResourceTimeoutEvent event = new IntBIISPassiveDeviceResourceTimeoutEvent(simuComModel, this.myModel, this, process); 
+            final PassiveDeviceResourceTimeoutEvent event = new PassiveDeviceResourceTimeoutEvent(simuComModel, this.myModel, this, process); 
             event.schedule(process, timeoutValue);
         }
     }

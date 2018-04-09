@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISEventSimSystemModel;
 import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
@@ -55,7 +56,7 @@ public class BPResourceFactory {
      *            the resource specification
      * @return the created resource
      */
-    public SimActiveResource createActiveResource(final EventSimModel model, ActorResource specification) {
+    public SimActiveResource createActiveResource(final IntBIISEventSimSystemModel model, ActorResource specification) {
   
     	ProcessingResourceSpecification spec = ResourceenvironmentFactory.eINSTANCE.createProcessingResourceSpecification();
     	    	
@@ -75,10 +76,11 @@ public class BPResourceFactory {
     	// call the original resource factory 
     	SimActiveResource result = resourceFactory.createActiveResource(spec);
     	
+    	
     	SuspendableFCFSResource x = (SuspendableFCFSResource)result.getSchedulerResource();
     	
     	// SuspendEvent is fired at the beginning of the simulation
-    	new SuspendEvent(model, "suspend", specification.getWorkingPeriods()).schedule(x,0);
+    	new SuspendEvent(model.getMiddleware().getSimulationModel(), "suspend", specification.getWorkingPeriods()).schedule(x,0);
     	
     	return result;
     }

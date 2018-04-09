@@ -11,17 +11,17 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
  * This class is created to support DeviceResources and duplicates the PassiveResourceTimeoutEvent 
  * TODO: factor out a common base for using other passive resources than "PassiveResource" 
  */
-public class IntBIISPassiveDeviceResourceTimeoutEvent extends AbstractSimEventDelegator<SimpleWaitingProcess>{
+public class PassiveDeviceResourceTimeoutEvent extends AbstractSimEventDelegator<SimpleWaitingProcess>{
 
 	
     private final SimpleWaitingProcess process;
     
-    private final IntBIISSimSimpleFairPassiveDeviceResource resource;
+    private final SimSimpleFairPassiveDeviceResource resource;
     
     private final SimuComModel simuComModel; 
 		
-	public IntBIISPassiveDeviceResourceTimeoutEvent(final SimuComModel simuComModel, final SchedulerModel model,
-            final IntBIISSimSimpleFairPassiveDeviceResource resource, final SimpleWaitingProcess process) {
+	public PassiveDeviceResourceTimeoutEvent(final SimuComModel simuComModel, final SchedulerModel model,
+            final SimSimpleFairPassiveDeviceResource resource, final SimpleWaitingProcess process) {
 		super(model, resource.getName());
 
 
@@ -63,7 +63,7 @@ public class IntBIISPassiveDeviceResourceTimeoutEvent extends AbstractSimEventDe
 	     * 
 	     * @return the passive resource
 	     */
-	    public IntBIISSimSimpleFairPassiveDeviceResource getResource() {
+	    public SimSimpleFairPassiveDeviceResource getResource() {
 	        return resource;
 	    }
 

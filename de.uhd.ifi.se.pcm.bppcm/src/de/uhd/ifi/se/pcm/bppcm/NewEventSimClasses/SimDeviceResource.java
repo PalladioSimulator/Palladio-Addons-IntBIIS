@@ -25,7 +25,7 @@ import edu.kit.ipd.sdq.eventsim.resources.listener.IPassiveResourceListener;
  * an assembly context and so, dont fit to PassiveResources. 
  * TODO Factor out general Passive Resources and change implementation. Also see the Observees etc.  
  */
-public class IntBIISSimDeviceResource extends EventSimEntity {
+public class SimDeviceResource extends EventSimEntity {
 
     /** the encapsulated scheduler resource */
     private final IPassiveResource schedulerResource;
@@ -45,7 +45,7 @@ public class IntBIISSimDeviceResource extends EventSimEntity {
      *            the specification of this resource
      */
     @Inject
-    public IntBIISSimDeviceResource(ISimulationModel model, @Assisted IPassiveResource resource,
+    public SimDeviceResource(ISimulationModel model, @Assisted IPassiveResource resource,
             @Assisted DeviceResource specification) {
         super(model, "SimPassiveResource");
         this.schedulerResource = resource;
@@ -156,17 +156,17 @@ public class IntBIISSimDeviceResource extends EventSimEntity {
 
             @Override
             public void request(ISchedulableProcess process, long num) {
-                IntBIISSimDeviceResource.this.fireRequest((SimulatedProcess) process, num);
+                SimDeviceResource.this.fireRequest((SimulatedProcess) process, num);
             }
 
             @Override
             public void release(ISchedulableProcess process, long num) {
-            	IntBIISSimDeviceResource.this.fireRelease((SimulatedProcess) process, num);
+            	SimDeviceResource.this.fireRelease((SimulatedProcess) process, num);
             }
 
             @Override
             public void acquire(ISchedulableProcess process, long num) {
-            	IntBIISSimDeviceResource.this.fireAcquire((SimulatedProcess) process, num);
+            	SimDeviceResource.this.fireAcquire((SimulatedProcess) process, num);
             }
 
         });

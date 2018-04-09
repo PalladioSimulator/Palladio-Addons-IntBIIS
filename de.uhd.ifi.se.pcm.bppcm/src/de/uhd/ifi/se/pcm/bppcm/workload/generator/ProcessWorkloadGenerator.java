@@ -11,7 +11,6 @@ import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 
 import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 
-import de.uka.ipd.sdq.probespec.framework.garbagecollection.IRegionBasedGarbageCollector;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import edu.kit.ipd.sdq.eventsim.api.IWorkload;
 import edu.kit.ipd.sdq.eventsim.entities.IEntityListener;

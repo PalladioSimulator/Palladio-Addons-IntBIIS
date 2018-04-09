@@ -2,8 +2,11 @@ package de.uhd.ifi.se.pcm.bppcm.command;
 
 import com.google.inject.Inject;
 
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.DeviceResourceModel;
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IDeviceResource;
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISEventSimSystemModel;
 import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISResourceFactory;
-import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISSimDeviceResource;
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.SimDeviceResource;
 import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationEnvironmentModel;
@@ -21,7 +24,12 @@ import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
  */
 public class BuildAndRegisterDeviceResources implements IPCMCommand<Void> {
 
-	private final EventSimModel eventSimModel;
+	
+	IntBIISEventSimSystemModel model;
+	
+	@Inject 
+	DeviceResourceModel resourceModel;
+	
 	
 	/**
      * Constructs a command that builds up a registry containing all device resources of a PCM
@@ -30,15 +38,15 @@ public class BuildAndRegisterDeviceResources implements IPCMCommand<Void> {
      * @param model
      *            the simulation model
      */
-    public BuildAndRegisterDeviceResources(EventSimModel model) {
-        this.eventSimModel = model;
+    public BuildAndRegisterDeviceResources(IntBIISEventSimSystemModel model) {
+        this.model = model;
     }
 	
 	@Override
 	public Void execute(PCMModel model, ICommandExecutor<PCMModel> executor) {
 			
 			// get the organization environment model
-			OrganizationEnvironmentModel oem = eventSimModel.getOrganizationalModel();
+			OrganizationEnvironmentModel oem = this.model.getOrganizationalModel();
 			
 			// return if the oem is not contained in the model
 			// if only IT is simulated the oem is not required
@@ -51,9 +59,10 @@ public class BuildAndRegisterDeviceResources implements IPCMCommand<Void> {
             
         	
         	// create device resource instance
-            IntBIISSimDeviceResource res = IntBIISResourceFactory.createDeviceResource(eventSimModel, specification);             
+            //IntBIISSimDeviceResource res = IntBIISResourceFactory.createDeviceResource(eventSimModel, specification);             
             // register the created device resource instance
-            eventSimModel.getDeviceResourceRegistry().registerDeviceResource(specification, res);
+        	this.resourceModel.getPassiveResource(specification);
+            //this.resourceModel.findOrCreateResource(specification, this.model);
             
         }
         

@@ -7,6 +7,11 @@ import java.util.Set;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.ActorResourceModel;
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISEventSimSystemModel;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep;
 import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
@@ -15,6 +20,7 @@ import de.uhd.ifi.se.pcm.bppcm.resources.entities.RoleActorPair;
 import de.uhd.ifi.se.pcm.bppcm.strategies.ActorStepTraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.entities.IEntityListener;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
+import edu.kit.ipd.sdq.pcm.simulation.bpscheduler.SuspendableFCFSResource;
 
 
 /**
@@ -23,21 +29,32 @@ import edu.kit.ipd.sdq.eventsim.workload.entities.User;
  * @author Robert Heinrich
  *
  */
+@Singleton
 public class Dispatcher implements IDispatcher {
 	
 	private Hashtable<Long, RoleActorPair> dispatcherList;
 	
 	private static final Logger logger = Logger.getLogger(ActorStepTraversalStrategy.class);
-	private EventSimModel model;
+	
+	private IntBIISEventSimSystemModel model;
+	
+	@Inject 
+	ActorResourceModel arm;
 	
 	private ActorResourceTracker tracker;
 	
-	public Dispatcher(EventSimModel model, ActorResourceTracker tracker){
+//	public Dispatcher(EventSimSystemModel model, ActorResourceTracker tracker){
+//		this.model = model;
+//		this.tracker = tracker;
+//		this.dispatcherList = new Hashtable<Long, RoleActorPair>();
+//	}
+	
+	public Dispatcher(IntBIISEventSimSystemModel model, ActorResourceTracker tracker) {
 		this.model = model;
 		this.tracker = tracker;
 		this.dispatcherList = new Hashtable<Long, RoleActorPair>();
 	}
-	
+
 	@Override
 	public ActorResource dispatch(final User instance, ActorStep step) {
 		
@@ -144,9 +161,8 @@ public class Dispatcher implements IDispatcher {
 		
 		// select the actor with the shortest waiting queue		
 		for (ActorResource j : actors) {
-			ActorResourceInstance ari = model.getActorResourceRegistry()
-					.getActorResourceForContext(j);
-			double demand = ari.getResource().getCurrentDemand();
+			ActorResourceInstance ari = arm.findOrRegisterActorResourceInstance(j);
+			double demand = getCurrentDemand(ari);
 			
 			if(demand < selectedDemand) {
 				selectedActor = j;
@@ -155,6 +171,10 @@ public class Dispatcher implements IDispatcher {
 		}
         
         return selectedActor;
+	}
+	
+	private double getCurrentDemand(ActorResourceInstance ari){
+		return ((SuspendableFCFSResource)ari.getResource().getSchedulerResource()).getRemainingDemand();
 	}
 
 }

@@ -1,5 +1,8 @@
 package de.uhd.ifi.se.pcm.bppcm.core;
 
+import java.net.URL;
+
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -28,16 +31,18 @@ import edu.kit.ipd.sdq.eventsim.api.PCMModel;
  */
 public class BPPCMModel extends PCMModel{
 
-    public BPPCMModel(Allocation allocationModel, Repository repositoryModel, ResourceEnvironment resourceModel,
+	
+
+	public BPPCMModel(Allocation allocationModel, Repository repositoryModel, ResourceEnvironment resourceModel,
 			System systemModel, UsageModel usageModel, ResourceRepository resourceRepository) {
 		super(allocationModel, repositoryModel, resourceModel, systemModel, usageModel, resourceRepository);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public static OrganizationEnvironmentModel loadFromBundle(final Bundle bundle,
             final IPath businessProcessModelLocation) {
 
-        final URI bpmUri = PCMModel.relativePathToBundleURI(bundle, businessProcessModelLocation);
+        final URI bpmUri = relativePathToBundleURI(bundle, businessProcessModelLocation);
         
         // the organization environment model is not required in all cases
         // if only IT is simulated, the organization environment model is not required

@@ -6,10 +6,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import org.apache.log4j.Logger;
+import org.palladiosimulator.pcm.repository.PassiveResource;
+
 import com.google.inject.Singleton;
 
-import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISSimDeviceResource;
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISResourceFactory;
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.SimDeviceResource;
+import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
+import edu.kit.ipd.sdq.eventsim.resources.PassiveResourceRegistry;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 
@@ -22,26 +28,26 @@ import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 
 @Singleton
 public class DeviceResourceRegistry  {
-	
+	private static final Logger logger = Logger.getLogger(DeviceResourceRegistry.class);
 	// maps DeviceResource ID -> device resource instance
-    private Map<String, IntBIISSimDeviceResource /*DeviceResourceInstance*/> map;
+    private Map<String, SimDeviceResource /*DeviceResourceInstance*/> map;
     
-    private List<Consumer<IntBIISSimDeviceResource>> registrationListeners;
+    private List<Consumer<SimDeviceResource>> registrationListeners;
     
     /**
      * Constructs a new registry for device resources.
      */
     public DeviceResourceRegistry() {
-        this.map = new HashMap<String, IntBIISSimDeviceResource /*DeviceResourceInstance*/>();
+        this.map = new HashMap<String, SimDeviceResource /*DeviceResourceInstance*/>();
         registrationListeners = new LinkedList<>();
     }
     
     
-    public void addResourceRegistrationListener(Consumer<IntBIISSimDeviceResource> listener) {
+    public void addResourceRegistrationListener(Consumer<SimDeviceResource> listener) {
         registrationListeners.add(listener);
     }
 
-    private void notifyRegistrationListeners(IntBIISSimDeviceResource resource) {
+    private void notifyRegistrationListeners(SimDeviceResource resource) {
         registrationListeners.forEach(listener -> listener.accept(resource));
     }
     
@@ -54,7 +60,7 @@ public class DeviceResourceRegistry  {
      * @param instance
      *            the device resource instance
      */
-    public void registerDeviceResource(DeviceResource specification, IntBIISSimDeviceResource instance/*DeviceResourceInstance instance*/) {
+    public void registerDeviceResource(DeviceResource specification, SimDeviceResource instance/*DeviceResourceInstance instance*/) {
         map.put(specification.getId(), instance);
     }
     
@@ -65,12 +71,29 @@ public class DeviceResourceRegistry  {
      *            the device resource specification
      * @return the resource instance for the passed specification
      */
-    public IntBIISSimDeviceResource getDeviceResource(DeviceResource specification) {
-    	IntBIISSimDeviceResource r = map.get(specification.getId());
+    public SimDeviceResource getDeviceResource(DeviceResource specification) {
+    	SimDeviceResource r = map.get(specification.getId());
         if (r == null) {
             throw new RuntimeException("Could not find the actor resource instance for "
                     + PCMEntityHelper.toString(specification));
         }
         return r;
     }
+    
+    public SimDeviceResource findOrCreateResource(DeviceResource specification, EventSimModel model){
+    	if(!map.containsKey(specification.getId())){
+    		SimDeviceResource resource = IntBIISResourceFactory.createDeviceResource(model, specification);
+    		
+    		map.put(specification.getId(), resource);
+    		
+    		logger.info(String.format("Created Device resource %s",
+                    PCMEntityHelper.toString(specification)));
+    		
+    		 notifyRegistrationListeners(resource);
+    	}
+		return map.get(specification.getId());
+    }
+
+
+
 }

@@ -1,5 +1,6 @@
 package de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,8 +12,11 @@ import org.palladiosimulator.pcm.resourcetype.ResourceType;
 
 import com.google.inject.Inject;
 
+import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep;
+import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
 import de.uhd.ifi.se.pcm.bppcm.resources.ActorResourceRegistry;
+import de.uhd.ifi.se.pcm.bppcm.resources.entities.ActorResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
 import edu.kit.ipd.sdq.eventsim.api.IRequest;
 import edu.kit.ipd.sdq.eventsim.api.ISimulationMiddleware;
@@ -27,7 +31,7 @@ import edu.kit.ipd.sdq.eventsim.instrumentation.injection.Instrumentor;
 import edu.kit.ipd.sdq.eventsim.instrumentation.injection.InstrumentorBuilder;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasurementFacade;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasurementStorage;
-import edu.kit.ipd.sdq.eventsim.measurement.osgi.BundleProbeLocator;
+//import edu.kit.ipd.sdq.eventsim.measurement.osgi.BundleProbeLocator;
 import edu.kit.ipd.sdq.eventsim.resources.Activator;
 import edu.kit.ipd.sdq.eventsim.resources.ActiveResourceRegistry;
 import edu.kit.ipd.sdq.eventsim.resources.EventSimActiveResourceModel;
@@ -35,8 +39,9 @@ import edu.kit.ipd.sdq.eventsim.resources.ProcessRegistry;
 import edu.kit.ipd.sdq.eventsim.resources.ResourceProbeConfiguration;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimulatedProcess;
+import edu.kit.ipd.sdq.pcm.simulation.bpscheduler.ISuspendableSchedulableProcess;
 
-public class IntBIISActorResourceModel implements IActorResource {
+public class ActorResourceModel implements IActorResource {
 	 private static final Logger logger = Logger.getLogger(EventSimActiveResourceModel.class);
 
 	    private Map<ResourceInterface, ResourceType> resourceInterfaceToTypeMap;
@@ -56,15 +61,15 @@ public class IntBIISActorResourceModel implements IActorResource {
 
 	    @Inject
 	    private ProcessRegistry processRegistry;
-	    
-	    @Inject
-	    private ActiveResourceRegistry resourceRegistry;
-	    
+	     
 	    @Inject 
 	    private ActorResourceRegistry actorRegistry;
 	    
 	    @Inject
-	    public IntBIISActorResourceModel(ISimulationMiddleware middleware) {
+	    private IntBIISEventSimSystemModel model;
+	    
+	    @Inject
+	    public ActorResourceModel(ISimulationMiddleware middleware) {
 	        // initialize in simulation preparation phase
 	        middleware.registerEventHandler(SimulationPrepareEvent.class, e -> {
 	            init();
@@ -81,7 +86,8 @@ public class IntBIISActorResourceModel implements IActorResource {
 	    public void init() {
 	        // setup measurement facade
 	        Bundle bundle = Activator.getContext().getBundle();
-	        measurementFacade = new MeasurementFacade<>(new ResourceProbeConfiguration(), new BundleProbeLocator<>(bundle));
+	        //TODO Make measurement work
+	        //measurementFacade = new MeasurementFacade<>(new ResourceProbeConfiguration(), new BundleProbeLocator<>(bundle));
 
 	        // add hints for extracting IDs and names
 	        measurementStorage.addIdExtractor(SimActiveResource.class, c -> ((SimActiveResource) c).getId());
@@ -99,10 +105,10 @@ public class IntBIISActorResourceModel implements IActorResource {
 	        
 	        //TODO do this for actorResourceRegistry
 	        // instrument newly created resources
-	        resourceRegistry.addResourceRegistrationListener(resource -> {
-	            // create probes and calculators (if requested by instrumentation description)
-	            instrumentor.instrument(resource);
-	        });
+//	        actorRegistry.addResourceRegistrationListener(resource -> {
+//	            // create probes and calculators (if requested by instrumentation description)
+//	            instrumentor.instrument(resource);
+//	        });
 	    }
 	    
 	    public void finalise() {
@@ -127,6 +133,19 @@ public class IntBIISActorResourceModel implements IActorResource {
 
 	    }
 	    
+	    public void setInterruptable(IRequest request, ActorStep action){
+	    	((ISuspendableSchedulableProcess)processRegistry.getOrCreateSimulatedProcess(request)).setInterruptable(action.isInterruptable());
+	    }
+
+		@Override
+		public ActorResourceInstance findOrRegisterActorResourceInstance(ActorResource specification) {
+			return this.actorRegistry.findOrCreateResource(specification, model);
+		}
+
+		public Collection<ActorResourceInstance> getAllActorResourceInstances(){
+			return actorRegistry.getAllActorResourceInstances();
+		}
+
 	    
 
 }
