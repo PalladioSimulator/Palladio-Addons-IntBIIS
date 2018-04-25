@@ -11,10 +11,13 @@ import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 
 import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 
+import com.google.inject.assistedinject.Assisted;
+
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import edu.kit.ipd.sdq.eventsim.api.IWorkload;
 import edu.kit.ipd.sdq.eventsim.entities.IEntityListener;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
+import edu.kit.ipd.sdq.eventsim.workload.entities.UserFactory;
 import edu.kit.ipd.sdq.eventsim.workload.generator.WorkloadGenerator;
 
 
@@ -30,9 +33,10 @@ public class ProcessWorkloadGenerator implements WorkloadGenerator{
 
     private static final Logger logger = Logger.getLogger(ProcessWorkloadGenerator.class);
     
-	private final EventSimModel model;
+
     private final ProcessWorkload workload;
     private final EList<ProcessTriggerPeriod> periods;
+    private UserFactory userFactory;
     //private final IRegionBasedGarbageCollector<RequestContext> blackboardGarbageCollector;
 	
 	/**
@@ -43,8 +47,8 @@ public class ProcessWorkloadGenerator implements WorkloadGenerator{
      * @param workload
      *            the workload description
      */
-    public ProcessWorkloadGenerator(final EventSimModel model, final ProcessWorkload workload) {
-        this.model = model;
+    public ProcessWorkloadGenerator(UserFactory userFactory, @Assisted final ProcessWorkload workload){
+    	this.userFactory = userFactory;
         this.workload = workload;
         this.periods = workload.getProcessTriggerPeriods();
         //this.blackboardGarbageCollector = this.model.getProbeSpecContext().getBlackboardGarbageCollector();
@@ -66,7 +70,7 @@ public class ProcessWorkloadGenerator implements WorkloadGenerator{
     	
     	// create the user
         final UsageScenario scenario = this.workload.getUsageScenario_Workload();
-        final User user = new User(this.model, scenario);
+        final User user = userFactory.create(scenario);
         
         logger.info("create a new user");
         
@@ -78,7 +82,8 @@ public class ProcessWorkloadGenerator implements WorkloadGenerator{
             public void leftSystem() {
 //                ProcessWorkloadGenerator.this.blackboardGarbageCollector.leaveRegion(user.getRequestContext()
 //                        .rootContext());
-                ProcessWorkloadGenerator.this.model.increaseMainMeasurementsCount();
+            	//TODO: Is this still needed or just a fragment of old structure -- Seems like old Structure
+                //ProcessWorkloadGenerator.this.model.increaseMainMeasurementsCount();
             }
 
             @Override
@@ -86,10 +91,10 @@ public class ProcessWorkloadGenerator implements WorkloadGenerator{
 //                ProcessWorkloadGenerator.this.blackboardGarbageCollector.enterRegion(user.getRequestContext()
 //                        .rootContext());
                 
-                logger.info("process instance started execution of " + scenario.getEntityName() + " at " + model.getSimulationControl().getCurrentSimulationTime());
+                logger.info("process instance started execution of " + scenario.getEntityName() + " at " + user.getModel().getSimulationControl().getCurrentSimulationTime());
                 
                 // determine the current simulation time. This is the time the actual user started
-                double currentTime = model.getSimulationControl().getCurrentSimulationTime();
+                double currentTime = user.getModel().getSimulationControl().getCurrentSimulationTime();
                 
                 ProcessTriggerPeriod currentPeriod = null;
                 

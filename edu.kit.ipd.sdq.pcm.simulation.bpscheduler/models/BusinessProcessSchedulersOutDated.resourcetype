@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resourcetype:ResourceRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:resourcetype="http://palladiosimulator.org/PalladioComponentModel/ResourceType/5.2">
+<resourcetype:ResourceRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:resourcetype="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/5.2">
   <schedulingPolicies__ResourceRepository id="edu.kit.ipd.sdq.pcm.simulation.scheduler.bpfcfs" entityName="Business Process First-Come First-Served"/>
 </resourcetype:ResourceRepository>
