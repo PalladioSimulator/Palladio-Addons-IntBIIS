@@ -2,11 +2,11 @@ package de.uhd.ifi.se.pcm.bppcm.command;
 
 import com.google.inject.Inject;
 
-import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IActorResource;
 import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISEventSimSystemModel;
 import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationEnvironmentModel;
+import de.uhd.ifi.se.pcm.bppcm.resources.IActorResource;
 import de.uhd.ifi.se.pcm.bppcm.resources.entities.ActorResourceInstance;
 import edu.kit.ipd.sdq.eventsim.api.PCMModel;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;

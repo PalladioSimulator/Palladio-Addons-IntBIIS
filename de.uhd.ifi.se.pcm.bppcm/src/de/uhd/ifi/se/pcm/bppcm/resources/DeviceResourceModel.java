@@ -1,4 +1,4 @@
-package de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses;
+package de.uhd.ifi.se.pcm.bppcm.resources;
 
 import org.osgi.framework.Bundle;
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
@@ -74,6 +74,7 @@ public class DeviceResourceModel implements IDeviceResource{
             finalise();
             return Registration.UNREGISTER;
         });
+
     }
     
     public void init() {
@@ -108,21 +109,21 @@ public class DeviceResourceModel implements IDeviceResource{
     
     public void acquire(IRequest request, DeviceResource specification, int num,
             Procedure onGrantedCallback) {
-    	SimDeviceResource res = this.getPassiveResource(specification);
+    	SimDeviceResource res = this.getDeviceResource(specification);
         SimulatedProcess process = processRegistry.getOrCreateSimulatedProcess(request);
         res.acquire(process, num, false, -1, onGrantedCallback);
     }
 
    
    public boolean release(IRequest request, DeviceResource specification, int num) {
-       final SimDeviceResource res = this.getPassiveResource(specification);
+       final SimDeviceResource res = this.getDeviceResource(specification);
        
        res.release(processRegistry.getOrCreateSimulatedProcess(request), 1);
 	return false;
    }
    
-   public SimDeviceResource getPassiveResource(final DeviceResource specification) {
-       final SimDeviceResource simResource = resourceRegistry.findOrCreateResource(specification, eventSim);
+   public SimDeviceResource getDeviceResource(final DeviceResource specification) {
+       final SimDeviceResource simResource = resourceRegistry.findOrCreateResource(specification);
        if (simResource == null) {
            throw new RuntimeException("Passive resource " + PCMEntityHelper.toString(specification)
                    + " could not be found.");

@@ -18,6 +18,7 @@ import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
 import de.uhd.ifi.se.pcm.bppcm.resources.entities.ActorResourceInstance;
 import de.uhd.ifi.se.pcm.bppcm.resources.entities.RoleActorPair;
 import de.uhd.ifi.se.pcm.bppcm.strategies.ActorStepTraversalStrategy;
+import edu.kit.ipd.sdq.eventsim.api.IUser;
 import edu.kit.ipd.sdq.eventsim.entities.IEntityListener;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
 import edu.kit.ipd.sdq.pcm.simulation.bpscheduler.SuspendableFCFSResource;

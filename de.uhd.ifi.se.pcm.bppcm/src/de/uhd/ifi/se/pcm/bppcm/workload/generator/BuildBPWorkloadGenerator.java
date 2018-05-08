@@ -1,4 +1,4 @@
-package de.uhd.ifi.se.pcm.bppcm.command;
+package de.uhd.ifi.se.pcm.bppcm.workload.generator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ import edu.kit.ipd.sdq.eventsim.workload.generator.OpenWorkloadGenerator;
 import edu.kit.ipd.sdq.eventsim.workload.generator.WorkloadGenerator;
 import edu.kit.ipd.sdq.eventsim.workload.generator.WorkloadGeneratorFactory;
 
-//TODO This class is a copy of BuildWorkloadGenerator and extendet with Process workload -- but where is the implementation.
+//TODO This class is a copy of BuildWorkloadGenerator and extendet with Process workload. Making this extendable woulb be reduce duplicated code.
 public class BuildBPWorkloadGenerator implements IPCMCommand<List<WorkloadGenerator>> {
 
 	@Inject

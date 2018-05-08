@@ -38,7 +38,7 @@ import edu.kit.ipd.sdq.eventsim.workload.generator.BuildWorkloadGenerator;
 import edu.kit.ipd.sdq.eventsim.workload.generator.WorkloadGenerator;
 
 //This is a replica of EventSimWorkloadModel to intigrate the BP Capabilities
-public class BPEventSimWorkloadModel extends EventSimWorkloadModel{
+public class BPWorkloadModel extends EventSimWorkloadModel{
 	  private static final Logger logger = Logger.getLogger(EventSimWorkloadModel.class);
 
 	    @Inject
@@ -68,7 +68,7 @@ public class BPEventSimWorkloadModel extends EventSimWorkloadModel{
 	    private MeasurementFacade<WorkloadMeasurementConfiguration> measurementFacade;
 	    
 	    @Inject
-	    public BPEventSimWorkloadModel(ISimulationMiddleware middleware) {
+	    public BPWorkloadModel(ISimulationMiddleware middleware) {
 	        // initialize in simulation preparation phase
 	    	super(middleware);
 	    	

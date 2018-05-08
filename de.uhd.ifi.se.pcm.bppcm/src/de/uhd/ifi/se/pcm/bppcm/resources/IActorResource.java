@@ -1,4 +1,4 @@
-package de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses;
+package de.uhd.ifi.se.pcm.bppcm.resources;
 
 import java.util.Collection;
 

@@ -7,21 +7,15 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 import org.apache.log4j.Logger;
-import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification;
-import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
-import org.palladiosimulator.pcm.resourcetype.ResourceType;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.ActorResourceModel;
+
 import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISEventSimSystemModel;
-import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
+
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
 import de.uhd.ifi.se.pcm.bppcm.resources.entities.ActorResourceInstance;
-import edu.kit.ipd.sdq.eventsim.resources.EventSimActiveResourceModel;
-import edu.kit.ipd.sdq.eventsim.resources.ResourceFactory;
-import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 
 /**
@@ -41,7 +35,7 @@ public class ActorResourceRegistry {
     
     private List<Consumer<ActorResourceInstance>> registrationListeners;
     @Inject
-    private ResourceFactory factory; 
+    private BPResourceFactory factory; 
     
     @Inject
     
@@ -106,7 +100,7 @@ public class ActorResourceRegistry {
         return map.values();
     }
     
-    public ActorResourceInstance findOrCreateResource(ActorResource specification, IntBIISEventSimSystemModel model){
+    public ActorResourceInstance findOrCreateActorResourceInstance(ActorResource specification, IntBIISEventSimSystemModel model){
     	if(!map.containsKey(specification.getId())){
     		ActorResourceInstance actor = new ActorResourceInstance(model, specification);
     		this.map.put(specification.getId(), actor);

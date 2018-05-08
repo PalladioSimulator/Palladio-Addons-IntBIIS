@@ -2,14 +2,13 @@ package de.uhd.ifi.se.pcm.bppcm.command;
 
 import com.google.inject.Inject;
 
-import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.DeviceResourceModel;
-import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IDeviceResource;
+
 import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISEventSimSystemModel;
-import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISResourceFactory;
-import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.SimDeviceResource;
+
 import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationEnvironmentModel;
+import de.uhd.ifi.se.pcm.bppcm.resources.DeviceResourceModel;
 import edu.kit.ipd.sdq.eventsim.api.PCMModel;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
@@ -61,7 +60,7 @@ public class BuildAndRegisterDeviceResources implements IPCMCommand<Void> {
         	// create device resource instance
             //IntBIISSimDeviceResource res = IntBIISResourceFactory.createDeviceResource(eventSimModel, specification);             
             // register the created device resource instance
-        	this.resourceModel.getPassiveResource(specification);
+        	this.resourceModel.getDeviceResource(specification);
             //this.resourceModel.findOrCreateResource(specification, this.model);
             
         }

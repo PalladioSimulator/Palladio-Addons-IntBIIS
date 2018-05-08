@@ -1,10 +1,11 @@
 package de.uhd.ifi.se.pcm.bppcm.strategies;
 
 
-import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.ActorResourceModel;
+
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep;
 import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
+import de.uhd.ifi.se.pcm.bppcm.resources.ActorResourceModel;
 import edu.kit.ipd.sdq.pcm.simulation.bpscheduler.SuspendableFCFSResource;
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 import edu.kit.ipd.sdq.eventsim.interpreter.SimulationStrategy;
