@@ -26,12 +26,14 @@ import com.google.inject.Singleton;
 
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
 import edu.kit.ipd.sdq.eventsim.resources.ResourceFactory;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
+import edu.kit.ipd.sdq.eventsim.resources.entities.SimResourceFactory;
 import edu.kit.ipd.sdq.pcm.simulation.bpscheduler.SuspendableFCFSResource;
 
 
@@ -47,6 +49,20 @@ public class BPResourceFactory {
 	
 	@Inject
 	private ResourceFactory resourceFactory;
+	
+	@Inject 
+	private BPSimResourceFactory simResourceFactory;
+	
+
+    private SchedulerModel model;
+    
+    
+    @Inject
+    public BPResourceFactory(SchedulerModel model) {
+        this.model = model;
+    }
+    
+    
 	/**
      * Creates an active resource in accordance with the given resource specification.
      * 
@@ -84,6 +100,38 @@ public class BPResourceFactory {
     	
     	return result;
     }
+    
+    /**
+     * Creates a SimPassiveResource in accordance with the given DeviceResource specification.
+     * 
+     * @param model
+     *            the simulation model
+     * @param specification
+     *            the DeviceResource specification
+     * 
+     * Note, the assembly context is neglected for device resources. It is assumed that the context is not required.
+     * 
+     */
+    public SimDeviceResource createDeviceResource(final DeviceResource specification) {
+        // obtain capacity by evaluating the associated StoEx
+        final PCMRandomVariable capacitySpecification = specification.getCapacity();
+        final int capacity = StackContext.evaluateStatic(capacitySpecification.getSpecification(), Integer.class);
+
+        final String name = specification.getEntityName();
+        final String resourceId = specification.getId();
+        final String combinedId = resourceId;
+
+       
+        
+        
+        IPassiveResource schedulerResource = new SimSimpleFairPassiveDeviceResource(specification, model, capacity, name, combinedId);
+
+
+
+        return simResourceFactory.createDeviceResource(schedulerResource, specification);
+        		
+    }
+    
     
     /**
      * Creates a passive resource in accordance with the given resource specification.

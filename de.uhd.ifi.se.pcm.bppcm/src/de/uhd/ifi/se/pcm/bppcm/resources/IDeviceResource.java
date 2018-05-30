@@ -1,4 +1,4 @@
-package de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses;
+package de.uhd.ifi.se.pcm.bppcm.resources;
 
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
 import edu.kit.ipd.sdq.eventsim.api.IRequest;

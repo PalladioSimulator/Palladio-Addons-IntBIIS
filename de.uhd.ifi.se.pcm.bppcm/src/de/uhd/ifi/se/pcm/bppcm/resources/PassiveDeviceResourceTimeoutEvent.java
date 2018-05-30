@@ -1,5 +1,4 @@
-package de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses;
-
+package de.uhd.ifi.se.pcm.bppcm.resources;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.processes.SimpleWaitingProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;

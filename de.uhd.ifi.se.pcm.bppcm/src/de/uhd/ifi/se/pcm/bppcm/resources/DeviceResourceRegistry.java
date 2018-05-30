@@ -9,10 +9,10 @@ import java.util.function.Consumer;
 import org.apache.log4j.Logger;
 import org.palladiosimulator.pcm.repository.PassiveResource;
 
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISResourceFactory;
-import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.SimDeviceResource;
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISEventSimSystemModel;
 import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
 import edu.kit.ipd.sdq.eventsim.resources.PassiveResourceRegistry;
@@ -33,6 +33,11 @@ public class DeviceResourceRegistry  {
     private Map<String, SimDeviceResource /*DeviceResourceInstance*/> map;
     
     private List<Consumer<SimDeviceResource>> registrationListeners;
+    
+    @Inject
+    private BPResourceFactory factory;
+    
+    
     
     /**
      * Constructs a new registry for device resources.
@@ -80,9 +85,9 @@ public class DeviceResourceRegistry  {
         return r;
     }
     
-    public SimDeviceResource findOrCreateResource(DeviceResource specification, EventSimModel model){
+    public SimDeviceResource findOrCreateResource(DeviceResource specification){
     	if(!map.containsKey(specification.getId())){
-    		SimDeviceResource resource = IntBIISResourceFactory.createDeviceResource(model, specification);
+    		SimDeviceResource resource = factory.createDeviceResource(specification);
     		
     		map.put(specification.getId(), resource);
     		

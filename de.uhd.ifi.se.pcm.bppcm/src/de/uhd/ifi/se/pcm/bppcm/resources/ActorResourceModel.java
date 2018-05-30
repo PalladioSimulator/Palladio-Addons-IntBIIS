@@ -1,4 +1,4 @@
-package de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses;
+package de.uhd.ifi.se.pcm.bppcm.resources;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -12,6 +12,7 @@ import org.palladiosimulator.pcm.resourcetype.ResourceType;
 
 import com.google.inject.Inject;
 
+import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISEventSimSystemModel;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep;
 import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
@@ -139,7 +140,7 @@ public class ActorResourceModel implements IActorResource {
 
 		@Override
 		public ActorResourceInstance findOrRegisterActorResourceInstance(ActorResource specification) {
-			return this.actorRegistry.findOrCreateResource(specification, model);
+			return this.actorRegistry.findOrCreateActorResourceInstance(specification, model);
 		}
 
 		public Collection<ActorResourceInstance> getAllActorResourceInstances(){
