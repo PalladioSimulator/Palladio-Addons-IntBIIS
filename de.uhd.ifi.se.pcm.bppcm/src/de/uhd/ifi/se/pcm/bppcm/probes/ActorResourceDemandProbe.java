@@ -21,8 +21,6 @@ public class ActorResourceDemandProbe extends AbstractProbe<AbstractActiveResour
 		
 		 for (int instance = 0; instance < resource.getNumberOfInstances(); instance++) {
 	            resource.addDemandListener(new IDemandListener() {
-	                // TODO account for instanceid in measuring point (property suffix? explicit
-	                // objects?)
 	                @Override
 	                public void demand(ISchedulableProcess process, double demand, int resourceServiceId) {
 	                    // build measurement
