@@ -7,6 +7,7 @@ import edu.kit.ipd.sdq.eventsim.measurement.annotation.Probe;
 import edu.kit.ipd.sdq.eventsim.measurement.probe.AbstractProbe;
 import edu.kit.ipd.sdq.eventsim.resources.entities.AbstractActiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.listener.IStateListener;
+import de.uhd.ifi.se.pcm.bppcm.probes.configurations.ActorResourceProbeConfiguration;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity.EntityLifecyclePhase;
 /**
  * This class probes the state of a given {@link de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource}, whereas

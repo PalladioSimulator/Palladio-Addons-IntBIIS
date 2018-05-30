@@ -1,5 +1,6 @@
 package de.uhd.ifi.se.pcm.bppcm.probes;
 
+import de.uhd.ifi.se.pcm.bppcm.probes.configurations.ActorResourceProbeConfiguration;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import edu.kit.ipd.sdq.eventsim.measurement.Measurement;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasuringPoint;
