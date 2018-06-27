@@ -20,6 +20,7 @@ import edu.kit.ipd.sdq.eventsim.instrumentation.injection.Instrumentor;
 import edu.kit.ipd.sdq.eventsim.instrumentation.injection.InstrumentorBuilder;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasurementFacade;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasurementStorage;
+import edu.kit.ipd.sdq.eventsim.measurement.osgi.BundleProbeLocator;
 //import edu.kit.ipd.sdq.eventsim.measurement.osgi.BundleProbeLocator;
 import edu.kit.ipd.sdq.eventsim.resources.Activator;
 import edu.kit.ipd.sdq.eventsim.resources.PassiveResourceRegistry;
@@ -31,6 +32,7 @@ import edu.kit.ipd.sdq.eventsim.resources.entities.SimulatedProcess;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
+import de.uhd.ifi.se.pcm.bppcm.probes.configurations.SimDeviceResourceProbeConfiguration;
 
 
 /* TODO Device Resources are nearly PassiveResources but contain no assembly context.
@@ -40,7 +42,6 @@ import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
 @Singleton
 public class DeviceResourceModel implements IDeviceResource{
 	
-	private Instrumentor<SimDeviceResource, ?> instrumentor;
 
     @Inject
     private MeasurementStorage measurementStorage;
@@ -54,13 +55,15 @@ public class DeviceResourceModel implements IDeviceResource{
     @Inject
     private InstrumentationDescription instrumentation;
 
-    private MeasurementFacade<ResourceProbeConfiguration> measurementFacade;
+    private MeasurementFacade<SimDeviceResourceProbeConfiguration> measurementFacade;
 
     @Inject
     private ProcessRegistry processRegistry;
 
     @Inject
     private DeviceResourceRegistry resourceRegistry;
+
+	private Instrumentor<SimDeviceResource, ?> instrumentor;
 	
     @Inject
     public DeviceResourceModel(ISimulationMiddleware middleware) {
@@ -80,21 +83,20 @@ public class DeviceResourceModel implements IDeviceResource{
     public void init() {
         // setup measurement facade
         Bundle bundle = Activator.getContext().getBundle();
-        //TODO Make measurement work
-        //measurementFacade = new MeasurementFacade<>(new ResourceProbeConfiguration(), new BundleProbeLocator<>(bundle));
+        measurementFacade = new MeasurementFacade<>(new SimDeviceResourceProbeConfiguration(), new BundleProbeLocator<>(bundle));
 
         // add hints for extracting IDs and names
-        measurementStorage.addIdExtractor(SimPassiveResource.class,
-                c -> ((SimPassiveResource) c).getSpecification().getId());
-        measurementStorage.addNameExtractor(SimPassiveResource.class, c -> ((SimPassiveResource) c).getName());
+        measurementStorage.addIdExtractor(SimDeviceResource.class,
+                c -> ((SimDeviceResource) c).getSpecification().getId());
+        measurementStorage.addNameExtractor(SimDeviceResource.class, c -> ((SimDeviceResource) c).getName());
 
         // create instrumentor for instrumentation description
-       //TODO: Make this work
-//        instrumentor = InstrumentorBuilder.buildFor(pcm).inBundle(Activator.getContext().getBundle())
-//                .withDescription(instrumentation).withStorage(measurementStorage).forModelType(PassiveResourceRep.class)
-//                .withMapping(
-//                        (SimPassiveResource r) -> new PassiveResourceRep(r.getSpecification(), r.getAssemblyContext()))
-//                .createFor(measurementFacade);
+        //TODO: A PassiveResourceRep is used here. It ought to work but it might be nicer to introduce a SimDeviceResourceRep.
+        	instrumentor = InstrumentorBuilder.buildFor(pcm).inBundle(Activator.getContext().getBundle())
+                  .withDescription(instrumentation).withStorage(measurementStorage).forModelType(PassiveResourceRep.class)
+                  .withMapping(
+                          (SimDeviceResource r) -> new PassiveResourceRep(r.getSpecification(), r.getAssemblyContext()))
+                .createFor(measurementFacade);
 
         // instrument newly created resources
         resourceRegistry.addResourceRegistrationListener(resource -> {

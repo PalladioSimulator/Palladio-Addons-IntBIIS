@@ -16,6 +16,7 @@ import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISEventSimSystemModel;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep;
 import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.ActorResource;
+import de.uhd.ifi.se.pcm.bppcm.probes.configurations.ActorResourceProbeConfiguration;
 import de.uhd.ifi.se.pcm.bppcm.resources.ActorResourceRegistry;
 import de.uhd.ifi.se.pcm.bppcm.resources.entities.ActorResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
@@ -32,6 +33,7 @@ import edu.kit.ipd.sdq.eventsim.instrumentation.injection.Instrumentor;
 import edu.kit.ipd.sdq.eventsim.instrumentation.injection.InstrumentorBuilder;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasurementFacade;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasurementStorage;
+import edu.kit.ipd.sdq.eventsim.measurement.osgi.BundleProbeLocator;
 //import edu.kit.ipd.sdq.eventsim.measurement.osgi.BundleProbeLocator;
 import edu.kit.ipd.sdq.eventsim.resources.Activator;
 import edu.kit.ipd.sdq.eventsim.resources.ActiveResourceRegistry;
@@ -43,11 +45,11 @@ import edu.kit.ipd.sdq.eventsim.resources.entities.SimulatedProcess;
 import edu.kit.ipd.sdq.pcm.simulation.bpscheduler.ISuspendableSchedulableProcess;
 
 public class ActorResourceModel implements IActorResource {
-	 private static final Logger logger = Logger.getLogger(EventSimActiveResourceModel.class);
+	 private static final Logger logger = Logger.getLogger(ActorResourceModel.class);
 
 	    private Map<ResourceInterface, ResourceType> resourceInterfaceToTypeMap;
 
-	    private Instrumentor<SimActiveResource, ?> instrumentor;
+	    private Instrumentor<ActorResourceInstance, ?> instrumentor;
 
 	    @Inject
 	    private MeasurementStorage measurementStorage;
@@ -88,11 +90,12 @@ public class ActorResourceModel implements IActorResource {
 	        // setup measurement facade
 	        Bundle bundle = Activator.getContext().getBundle();
 	        //TODO Make measurement work
-	        //measurementFacade = new MeasurementFacade<>(new ResourceProbeConfiguration(), new BundleProbeLocator<>(bundle));
+	       measurementFacade = new MeasurementFacade<>(new ResourceProbeConfiguration(),
+	    		   new BundleProbeLocator<>(bundle));
 
 	        // add hints for extracting IDs and names
-	        measurementStorage.addIdExtractor(SimActiveResource.class, c -> ((SimActiveResource) c).getId());
-	        measurementStorage.addNameExtractor(SimActiveResource.class, c -> ((SimActiveResource) c).getName());
+	        measurementStorage.addIdExtractor(ActorResourceInstance.class, c -> ((ActorResourceInstance) c).getResource().getId());
+	        measurementStorage.addNameExtractor(ActorResourceInstance.class, c -> ((ActorResourceInstance) c).getName());
 	        measurementStorage.addIdExtractor(SimulatedProcess.class,
 	                c -> Long.toString(((SimulatedProcess) c).getEntityId()));
 	        measurementStorage.addNameExtractor(SimulatedProcess.class, c -> ((SimulatedProcess) c).getName());
@@ -101,15 +104,15 @@ public class ActorResourceModel implements IActorResource {
 	        instrumentor = InstrumentorBuilder.buildFor(pcm).inBundle(Activator.getContext().getBundle())
 	                .withDescription(instrumentation).withStorage(measurementStorage).forModelType(ActiveResourceRep.class)
 	                .withMapping(
-	                        (SimActiveResource r) -> new ActiveResourceRep(r.getResourceContainer(), r.getResourceType()))
+	                        (ActorResourceInstance r) -> new ActiveResourceRep(r.getResource().getResourceContainer(), r.getResource().getResourceType()))
 	                .createFor(measurementFacade);
 	        
 	        //TODO do this for actorResourceRegistry
 	        // instrument newly created resources
-//	        actorRegistry.addResourceRegistrationListener(resource -> {
-//	            // create probes and calculators (if requested by instrumentation description)
-//	            instrumentor.instrument(resource);
-//	        });
+	        	actorRegistry.addResourceRegistrationListener(resource -> {
+	        		//create probes and calculators (if requested by instrumentation description)
+	        		instrumentor.instrument(resource);
+	        	});
 	    }
 	    
 	    public void finalise() {
