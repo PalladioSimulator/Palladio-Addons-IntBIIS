@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.ActorResourceModel;
+
 import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IntBIISEventSimSystemModel;
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ActorStep;
 import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
