@@ -25,6 +25,8 @@ import de.uhd.ifi.se.pcm.bppcm.command.BuildAndRegisterDeviceResources;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationEnvironmentModel;
 import de.uhd.ifi.se.pcm.bppcm.resources.ActorResourceTracker;
 import de.uhd.ifi.se.pcm.bppcm.resources.Dispatcher;
+import de.uhd.ifi.se.pcm.bppcm.resources.IActorResource;
+import de.uhd.ifi.se.pcm.bppcm.resources.IDeviceResource;
 import edu.kit.ipd.sdq.eventsim.api.IActiveResource;
 import edu.kit.ipd.sdq.eventsim.api.IPassiveResource;
 import edu.kit.ipd.sdq.eventsim.api.ISimulationMiddleware;

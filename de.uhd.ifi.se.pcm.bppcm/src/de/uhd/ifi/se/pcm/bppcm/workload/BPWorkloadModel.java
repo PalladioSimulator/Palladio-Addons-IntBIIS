@@ -8,7 +8,7 @@ import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
 
 import com.google.inject.Inject;
 
-import de.uhd.ifi.se.pcm.bppcm.command.BuildBPWorkloadGenerator;
+import de.uhd.ifi.se.pcm.bppcm.workload.generator.BuildBPWorkloadGenerator;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
