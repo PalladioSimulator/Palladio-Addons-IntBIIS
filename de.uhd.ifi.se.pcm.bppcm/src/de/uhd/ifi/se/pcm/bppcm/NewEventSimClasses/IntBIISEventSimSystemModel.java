@@ -25,6 +25,8 @@ import de.uhd.ifi.se.pcm.bppcm.command.BuildAndRegisterDeviceResources;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.OrganizationEnvironmentModel;
 import de.uhd.ifi.se.pcm.bppcm.resources.ActorResourceTracker;
 import de.uhd.ifi.se.pcm.bppcm.resources.Dispatcher;
+import de.uhd.ifi.se.pcm.bppcm.resources.IActorResource;
+import de.uhd.ifi.se.pcm.bppcm.resources.IDeviceResource;
 import edu.kit.ipd.sdq.eventsim.api.IActiveResource;
 import edu.kit.ipd.sdq.eventsim.api.IPassiveResource;
 import edu.kit.ipd.sdq.eventsim.api.ISimulationMiddleware;
@@ -50,20 +52,13 @@ import edu.kit.ipd.sdq.eventsim.measurement.osgi.BundleProbeLocator;
 import edu.kit.ipd.sdq.eventsim.system.Activator;
 import edu.kit.ipd.sdq.eventsim.system.EventSimSystemModel;
 import edu.kit.ipd.sdq.eventsim.system.SystemMeasurementConfiguration;
-import edu.kit.ipd.sdq.eventsim.system.command.BuildComponentInstances;
-import edu.kit.ipd.sdq.eventsim.system.command.FindAssemblyContextForSystemCall;
-import edu.kit.ipd.sdq.eventsim.system.command.InstallExternalCallParameterHandling;
-import edu.kit.ipd.sdq.eventsim.system.debug.DebugSeffTraversalListener;
 import edu.kit.ipd.sdq.eventsim.system.entities.ForkedRequest;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.entities.RequestFactory;
-import edu.kit.ipd.sdq.eventsim.system.handler.AfterSystemCallParameterHandler;
-import edu.kit.ipd.sdq.eventsim.system.handler.BeforeSystemCallParameterHandler;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.AllocationRegistry;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.SimulatedResourceEnvironment;
-import edu.kit.ipd.sdq.eventsim.system.staticstructure.commands.BuildResourceAllocation;
-import edu.kit.ipd.sdq.eventsim.system.staticstructure.commands.BuildSimulatedResourceEnvironment;
+
 
 
 /*TODO 
@@ -71,7 +66,7 @@ import edu.kit.ipd.sdq.eventsim.system.staticstructure.commands.BuildSimulatedRe
  * to access additional IntBIIS functionality. Is there a cleaner way to implement new Domains? 
 */
 @Singleton
-public class IntBIISEventSimSystemModel extends EventSimSystemModel{
+public class IntBIISEventSimSystemModel implements ISystem{
 	
 
 
@@ -128,7 +123,6 @@ public class IntBIISEventSimSystemModel extends EventSimSystemModel{
 	   
 		@Inject
 		public IntBIISEventSimSystemModel(ISimulationMiddleware middleware) {
-			super(middleware);
 			middleware.registerEventHandler(SimulationPrepareEvent.class, e -> {
 	            init();
 	            return Registration.UNREGISTER;

@@ -26,7 +26,7 @@ import com.google.inject.Singleton;
 
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
+
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;

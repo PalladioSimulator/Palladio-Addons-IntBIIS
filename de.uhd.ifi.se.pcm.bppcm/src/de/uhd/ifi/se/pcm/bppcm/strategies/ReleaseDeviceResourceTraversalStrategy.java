@@ -1,10 +1,10 @@
 package de.uhd.ifi.se.pcm.bppcm.strategies;
 
-import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.IDeviceResource;
-import de.uhd.ifi.se.pcm.bppcm.NewEventSimClasses.SimDeviceResource;
+
 import de.uhd.ifi.se.pcm.bppcm.bpusagemodel.ReleaseDeviceResourceAction;
 import de.uhd.ifi.se.pcm.bppcm.core.EventSimModel;
 import de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.DeviceResource;
+import de.uhd.ifi.se.pcm.bppcm.resources.IDeviceResource;
 
 import java.util.function.Consumer;
 

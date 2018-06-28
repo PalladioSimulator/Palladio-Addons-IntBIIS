@@ -8,7 +8,7 @@ import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
 
 import com.google.inject.Inject;
 
-import de.uhd.ifi.se.pcm.bppcm.command.BuildBPWorkloadGenerator;
+import de.uhd.ifi.se.pcm.bppcm.workload.generator.BuildBPWorkloadGenerator;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
@@ -16,9 +16,9 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
 import edu.kit.ipd.sdq.eventsim.api.ISimulationMiddleware;
 import edu.kit.ipd.sdq.eventsim.api.IWorkload;
 import edu.kit.ipd.sdq.eventsim.api.PCMModel;
-import edu.kit.ipd.sdq.eventsim.api.events.SimulationPrepareEvent;
 import edu.kit.ipd.sdq.eventsim.api.events.WorkloadUserFinishedEvent;
 import edu.kit.ipd.sdq.eventsim.api.events.IEventHandler.Registration;
+import edu.kit.ipd.sdq.eventsim.api.events.SimulationPrepareEvent;
 import edu.kit.ipd.sdq.eventsim.command.PCMModelCommandExecutor;
 import edu.kit.ipd.sdq.eventsim.instrumentation.description.core.InstrumentationDescription;
 import edu.kit.ipd.sdq.eventsim.instrumentation.description.useraction.UserActionRepresentative;
@@ -34,8 +34,8 @@ import edu.kit.ipd.sdq.eventsim.workload.EventSimWorkloadModel;
 import edu.kit.ipd.sdq.eventsim.workload.WorkloadMeasurementConfiguration;
 import edu.kit.ipd.sdq.eventsim.workload.debug.DebugUsageTraversalListener;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
-import edu.kit.ipd.sdq.eventsim.workload.generator.BuildWorkloadGenerator;
 import edu.kit.ipd.sdq.eventsim.workload.generator.WorkloadGenerator;
+;
 
 //This is a replica of EventSimWorkloadModel to intigrate the BP Capabilities
 public class BPWorkloadModel extends EventSimWorkloadModel{
