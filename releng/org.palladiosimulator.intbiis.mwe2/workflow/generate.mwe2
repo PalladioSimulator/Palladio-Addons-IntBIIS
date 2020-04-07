@@ -5,6 +5,7 @@ import tools.mdsd.ecoreworkflow.mwe2lib.bean.EclipseRCPSupportingStandaloneSetup
 import tools.mdsd.ecoreworkflow.mwe2lib.component.ContextDependentMapping
 import tools.mdsd.ecoreworkflow.mwe2lib.component.URISupportingDirectoryCleaner
 import tools.mdsd.ecoreworkflow.mwe2lib.component.GapPatternPostProcessor
+import tools.mdsd.ecoreworkflow.mwe2lib.component.RegexComponent
 
 var workspaceRoot = "../../"
 
@@ -84,18 +85,50 @@ Workflow {
 		srcPath = "platform:/resource/de.uhd.ifi.se.pcm.bppcm.editor/src-gen"
 	}
 	
-		component = GapPatternPostProcessor {
-			/*
+
+	
+	component = GapPatternPostProcessor {
+		folders = {
+			gen = "platform:/resource/de.uhd.ifi.se.pcm.bppcm/src-gen"
+			src = "platform:/resource/de.uhd.ifi.se.pcm.bppcm/src"
+		}
 		folders = {
 			gen = "platform:/resource/de.uhd.ifi.se.pcm.bppcm.edit/src-gen"
-			src = "platform:/resourcede.uhd.ifi.se.pcm.bppcm.edit/src"
+			src = "platform:/resource/de.uhd.ifi.se.pcm.bppcm.edit/src"
 		}
-		
+
 		folders = {
 			gen = "platform:/resource/de.uhd.ifi.se.pcm.bppcm.editor/src-gen"
 			src = "platform:/resource/de.uhd.ifi.se.pcm.bppcm.editor/src"
 		}
-		*/
+
+	}
+	
+	component = RegexComponent {
+		replacement = {
+			directory = "platform:/resource/de.uhd.ifi.se.pcm.bppcm.editor/src-gen"
+			wildcard = "**/BpusagemodelEditorGen.java"
+			mapping = {
+				from = "BpusagemodelEditorGen"
+				to = "BpusagemodelEditor"
+			}
+			mapping = {
+				from = "BpusagemodelEditor"
+				to = "BpusagemodelEditorGen"
+			}
+		}
+		replacement = {
+			directory = "platform:/resource/de.uhd.ifi.se.pcm.bppcm.editor/src-gen"
+			wildcard = "**/DatamodelEditorGen.java"
+			mapping = {
+				from = "DatamodelEditorGen"
+				to = "DatamodelEditor"
+			}
+			mapping = {
+				from = "DatamodelEditor"
+				to = "DatamodelEditorGen"
+			}
+		}
 	}
 
 }
