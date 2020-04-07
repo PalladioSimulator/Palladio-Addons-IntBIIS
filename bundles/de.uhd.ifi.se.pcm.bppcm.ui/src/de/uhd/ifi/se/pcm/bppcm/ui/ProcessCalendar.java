@@ -1195,7 +1195,7 @@ public class ProcessCalendar extends ViewPart implements IDoubleClickListener {
 		
 		if(month == "January") {
 			for(int i = 0; i < 31; i++) {
-				Integer j = new Integer(i+1);
+				Integer j = Integer.valueOf(i+1);
 				if (date.equals(j.toString())) {
 					index = i;
 				}
