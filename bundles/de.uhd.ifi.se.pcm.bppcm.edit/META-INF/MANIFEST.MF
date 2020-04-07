@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: de.uhd.ifi.se.pcm.bppcm.edit;singleton:=true
+Automatic-Module-Name: de.uhd.ifi.se.pcm.bppcm.edit
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: de.uhd.ifi.se.pcm.bppcm.bpusagemodel.provider.BpEditPlugin$Implementation

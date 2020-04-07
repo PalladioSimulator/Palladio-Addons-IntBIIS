@@ -24,6 +24,12 @@
       <extender
             uri="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.2"
             class="de.uhd.ifi.se.pcm.bppcm.bpusagemodel.provider.BpusagemodelItemProviderAdapterFactory$UsagemodelChildCreationExtender"/>
+      <extender
+            uri="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2"
+            class="de.uhd.ifi.se.pcm.bppcm.bpusagemodel.provider.BpusagemodelItemProviderAdapterFactory$SeffChildCreationExtender"/>
+      <extender
+            uri="http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Reliability/5.2"
+            class="de.uhd.ifi.se.pcm.bppcm.bpusagemodel.provider.BpusagemodelItemProviderAdapterFactory$SeffReliabilityChildCreationExtender"/>
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
