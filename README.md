@@ -1,6 +1,13 @@
-# IntBIIS
+# Palladio-Addons-IntBIIS
+The approach Integrated Business IT Impact Simulation (IntBIIS) proposes a holistic simulation that combines performance prediction on software architecture level and business process level. It predicts the impact of a business process on the quality of an information system and vice versa at design time. 
 
-This is a migration project. Until the first release here on GitHub, there will be no posibility to run an IntBIIS simulation.  
-IntBIIS is an extension of [EventSim](https://github.com/PalladioSimulator/Palladio-Analyzer-EventSim)
+Please note that the simulation based on EventSim is not operational yet. The build and update site only considers the modeling extension for Palladio.
 
-A documentation for [IntBIIS](https://sdqweb.ipd.kit.edu/wiki/IntBIIS) and [EventSim](https://sdqweb.ipd.kit.edu/wiki/EventSim) can be found at the public [SDQ](https://sdq.ipd.kit.edu) wiki. SDQ is the chair Software Design and Quality of the Institute for Program Structures and Data Organization ([IPD](https://www.informatik.kit.edu/english/257.php)). The IPD is part of the Karlsruhe Institute of Technology ([KIT](https://www.kit.edu)).
+## Documentation
+For comprehensive documentation, please visit our [wiki page](https://sdqweb.ipd.kit.edu/wiki/IntBIIS).
+
+## Support
+For support
+* visit our [issue tracking system](https://palladio-simulator.com/jira)
+* contact us via our [mailing list](https://lists.ira.uni-karlsruhe.de/mailman/listinfo/palladio-dev)
+For professional support, please fill in our [contact form](http://www.palladio-simulator.com/about_palladio/support/).
