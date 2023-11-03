@@ -1,57 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="Target Platform" sequenceNumber="1">
-<locations>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
-<unit id="de.uka.ipd.sdq.stoex.feature.feature.group" version="tbd"/>
-<unit id="de.uka.ipd.sdq.probfunction.math" version="tbd"/>
-<unit id="de.uka.ipd.sdq.identifier.feature.feature.group" version="tbd"/>
 <repository location="https://updatesite.palladio-simulator.com/palladio-core-commons/releases/latest/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
-<unit id="de.uka.ipd.sdq.stoex.feature.feature.group" version="tbd"/>
-<unit id="de.uka.ipd.sdq.probfunction.math" version="tbd"/>
-<unit id="de.uka.ipd.sdq.identifier.feature.feature.group" version="tbd"/>
-<repository location="https://updatesite.palladio-simulator.com/palladio-core-commons/nightly/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
-<unit id="org.palladiosimulator.pcm" version="tbd"/>
+<repository location="https://updatesite.palladio-simulator.com/palladio-core-commons/branches/release5.2.0/"/>
 <repository location="https://updatesite.palladio-simulator.com/palladio-core-pcm/releases/latest/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
-<unit id="org.palladiosimulator.pcm" version="tbd"/>
-<repository location="https://updatesite.palladio-simulator.com/palladio-core-pcm/nightly/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
-<unit id="org.palladiosimulator.pcm.edit" version="tbd"/>
+<repository location="https://updatesite.palladio-simulator.com/palladio-core-pcm/branches/release5.2.0/"/>
 <repository location="https://updatesite.palladio-simulator.com/palladio-editors-commons/releases/latest/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
-<unit id="org.palladiosimulator.pcm.edit" version="tbd"/>
-<repository location="https://updatesite.palladio-simulator.com/palladio-editors-commons/nightly/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
-<unit id="de.uka.ipd.sdq.workflow.feature.core.feature.group" version="tbd"/>
+<repository location="https://updatesite.palladio-simulator.com/palladio-editors-commons/branches/release5.2.0/"/>
 <repository location="https://updatesite.palladio-simulator.com/palladio-supporting-workflowengine/releases/latest/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
-<unit id="de.uka.ipd.sdq.workflow.feature.core.feature.group" version="tbd"/>
-<repository location="https://updatesite.palladio-simulator.com/palladio-supporting-workflowengine/nightly/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
-<unit id="org.palladiosimulator.analyzer.feature.feature.group" version="tbd"/>
+<repository location="https://updatesite.palladio-simulator.com/palladio-supporting-workflowengine/branches/release5.2.0/"/>
 <repository location="https://updatesite.palladio-simulator.com/palladio-analyzer-framework/releases/latest/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
-<unit id="org.palladiosimulator.analyzer.feature.feature.group" version="tbd"/>
-<repository location="https://updatesite.palladio-simulator.com/palladio-analyzer-framework/nightly/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
-<unit id="de.uka.ipd.sdq.featuremodel.feature.config.feature.group" version="tbd"/>
+<repository location="https://updatesite.palladio-simulator.com/palladio-analyzer-framework/branches/release5.2.0/"/>
 <repository location="https://updatesite.palladio-simulator.com/palladio-supporting-featuremodel/releases/latest/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
-<unit id="de.uka.ipd.sdq.featuremodel.feature.config.feature.group" version="tbd"/>
 <repository location="https://updatesite.palladio-simulator.com/palladio-supporting-featuremodel/nightly"/>
-</location>
-</locations>
-</target>
