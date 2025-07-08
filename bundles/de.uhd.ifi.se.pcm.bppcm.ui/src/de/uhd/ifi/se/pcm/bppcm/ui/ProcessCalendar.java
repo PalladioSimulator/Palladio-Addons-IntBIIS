@@ -55,7 +55,7 @@ import org.palladiosimulator.pcm.usagemodel.UsageModel;
 import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 import org.palladiosimulator.pcm.usagemodel.Workload;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.TabHelper;
-import org.palladiosimulator.analyzer.workflow.ConstantsContainer;
+import org.palladiosimulator.analyzer.workflow.core.ConstantsContainer;
 /**
  * ProcessCalendar which extends from ViewPart is a View.
  * It visualizes a Group of elements to choose and load
