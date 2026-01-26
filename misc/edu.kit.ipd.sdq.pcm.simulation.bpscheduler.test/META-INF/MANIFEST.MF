@@ -5,9 +5,9 @@ Bundle-SymbolicName: edu.kit.ipd.sdq.pcm.simulation.bpscheduler.test
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: edu.kit.ipd.sdq.pcm.simulation.bpscheduler;bundle-version="1.0.0",
- de.uka.ipd.sdq.scheduler;bundle-version="1.0.0",
- de.uka.ipd.sdq.simulation.abstractsimengine;bundle-version="1.0.0",
+ de.uka.ipd.sdq.scheduler,
+ de.uka.ipd.sdq.simulation.abstractsimengine,
  org.junit;bundle-version="4.10.0",
- de.uka.ipd.sdq.simulation.abstractsimengine.desmoj;bundle-version="1.0.0",
+ de.uka.ipd.sdq.simulation.abstractsimengine.desmoj,
  de.desmoj;bundle-version="2.3.3",
- de.uka.ipd.sdq.simucomframework;bundle-version="1.0.0"
+ de.uka.ipd.sdq.simucomframework
