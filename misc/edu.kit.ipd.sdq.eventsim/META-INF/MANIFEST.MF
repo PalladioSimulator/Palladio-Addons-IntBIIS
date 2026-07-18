@@ -24,6 +24,6 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uhd.ifi.se.pcm.bppcm;bundle-version="1.0.0",
  edu.kit.ipd.sdq.pcm.simulation.bpscheduler;bundle-version="1.0.0",
  org.palladiosimulator.analyzer.workflow
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: edu.kit.ipd.sdq.eventsim,
  edu.kit.ipd.sdq.eventsim.util

@@ -11,6 +11,6 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.probfunction,
  de.uka.ipd.sdq.probfunction.math
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: edu.kit.ipd.sdq.pcm.simulation.bpscheduler
 Import-Package: org.apache.log4j
