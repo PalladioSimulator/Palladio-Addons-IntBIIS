@@ -24,6 +24,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.palladiosimulator.pcm;visibility:=reexport,
  de.uka.ipd.sdq.probfunction;visibility:=reexport,
  de.uka.ipd.sdq.stoex;visibility:=reexport,
- de.uka.ipd.sdq.units;visibility:=reexport
+ de.uka.ipd.sdq.units;visibility:=reexport,
+ org.palladiosimulator.intbiis.mwe2;resolution:=optional
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.ui.plugin
