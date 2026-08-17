@@ -8,7 +8,7 @@ Bundle-ClassPath: .
 Bundle-Activator: de.uhd.ifi.se.pcm.bppcm.bpusagemodel.presentation.BpEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Export-Package: de.uhd.ifi.se.pcm.bppcm.bpusagemodel.presentation,
  de.uhd.ifi.se.pcm.bppcm.datamodel.presentation,
  de.uhd.ifi.se.pcm.bppcm.organizationenvironmentmodel.presentation
